@@ -9,7 +9,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
 body{background:#0b0b0b;color:#fff}
 
-/* ===== SLIDER (COVER + GALLERY) ===== */
+/* ===== SLIDER ===== */
 .slider{
  height:100vh;
  position:relative;
@@ -38,7 +38,8 @@ body{background:#0b0b0b;color:#fff}
 
 /* NAV */
 nav{
- position:sticky;top:0;
+ position:sticky;
+ top:0;
  background:#000;
  padding:14px;
  text-align:center;
@@ -63,39 +64,29 @@ h2{text-align:center;margin-bottom:30px}
  text-align:justify;
  color:#ccc;
  line-height:1.9;
- font-size:1.05rem
-}
-.about p br{
- display:block;
- margin:14px 0;
- content:"";
+ font-size:1.05rem;
+ margin-bottom:18px;
 }
 
-
-/* GALLERY SLIDER */
-.gallery-slider{
- position:relative;
- overflow:hidden;
-}
-.gallery-track{
- display:flex;
- animation:scroll 40s linear infinite;
-}
-.gallery-track{
+/* ===== FIXED GALLERY (ONLY CHANGE) ===== */
+.gallery{
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:20px;
+ gap:25px;
 }
-.gallery-track img{
+
+.gallery img{
  width:100%;
+ height:260px;
+ object-fit:cover;
  border-radius:14px;
  transition:.4s;
 }
-.gallery-track img:hover{
+
+.gallery img:hover{
  transform:scale(1.06);
  box-shadow:0 15px 35px rgba(0,0,0,.7);
 }
-
 
 /* COMMENTS */
 .comment-box{
@@ -169,47 +160,60 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
 <!-- ABOUT -->
 <section id="about" class="about">
 <h2>About Me</h2>
+
 <p>
 I’m Ankan, a passionate hobbyist photographer who believes photography is more than just clicking a shutter. For me, it’s about capturing emotions, moments, and stories that often go unnoticed.
+</p>
 
+<p>
 Through my lens, I try to frame not only what the eyes can see, but also what the heart can feel. Whether it’s the quiet beauty of nature, the raw expressions of people, or the magic hidden in everyday life, I love freezing moments that speak without words.
+</p>
 
-Photography is my way of expressing creativity, observing the world closely, and turning simple moments into lasting memories. Every photo I take is a reflection of my perspective — honest, soulful, and deeply connected to the moment.</p>
+<p>
+Photography is my way of expressing creativity, observing the world closely, and turning simple moments into lasting memories. Every photo I take is a reflection of my perspective — honest, soulful, and deeply connected to the moment.
+</p>
+
 <p>
 আমি অঙ্কন, একজন শখের ফটোগ্রাফার। আমার কাছে ফটোগ্রাফি মানে শুধু ছবি তোলা নয়, বরং মুহূর্ত, অনুভূতি আর গল্পকে ধরে রাখা।
+</p>
 
+<p>
 আমার ক্যামেরার লেন্স দিয়ে আমি শুধু দৃশ্য নয়, মানুষের আবেগ, প্রকৃতির নীরব সৌন্দর্য আর দৈনন্দিন জীবনের অদেখা মুহূর্তগুলোকে ফ্রেমবন্দি করতে ভালোবাসি। যেটা চোখে ধরা পড়ে না, কিন্তু হৃদয়ে অনুভূত হয় — সেটাকেই ছবির মাধ্যমে প্রকাশ করার চেষ্টা করি।
+</p>
 
-ফটোগ্রাফি আমার কাছে নিজেকে প্রকাশ করার এক মাধ্যম, চারপাশের পৃথিবীকে নতুন চোখে দেখার সুযোগ। প্রতিটি ছবি আমার ভাবনা, অনুভূতি আর সেই মুহূর্তের সাথে আমার সংযোগের প্রতিচ্ছবি। </p>
-<p> 
+<p>
+ফটোগ্রাফি আমার কাছে নিজেকে প্রকাশ করার এক মাধ্যম, চারপাশের পৃথিবীকে নতুন চোখে দেখার সুযোগ। প্রতিটি ছবি আমার ভাবনা, অনুভূতি আর সেই মুহূর্তের সাথে আমার সংযোগের প্রতিচ্ছবি।
+</p>
+
+<p style="text-align:center;color:#f5b041;font-style:italic;">
 Through my lens, moments become memories.
 </p>
 </section>
 
-<!-- GALLERY SLIDER -->
+<!-- GALLERY -->
 <section id="gallery">
 <h2>My Gallery</h2>
 <div class="gallery">
-    <a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
-    <a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
-    <a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
-    <a href="photo4.jpeg" target="_blank"><img src="photo4.jpeg"></a>
-    <a href="photo5.jpeg" target="_blank"><img src="photo5.jpeg"></a>
-    <a href="photo6.jpeg" target="_blank"><img src="photo6.jpeg"></a>
-    <a href="photo7.jpeg" target="_blank"><img src="photo7.jpeg"></a>
-    <a href="photo8.jpeg" target="_blank"><img src="photo8.jpeg"></a>
-    <a href="photo9.jpeg" target="_blank"><img src="photo9.jpeg"></a>
-    <a href="photo10.jpeg" target="_blank"><img src="photo10.jpeg"></a>
-    <a href="photo11.jpeg" target="_blank"><img src="photo11.jpeg"></a>
-    <a href="photo12.jpeg" target="_blank"><img src="photo12.jpeg"></a>
-    <a href="photo13.jpeg" target="_blank"><img src="photo13.jpeg"></a>
-    <a href="photo14.jpeg" target="_blank"><img src="photo14.jpeg"></a>
-    <a href="photo15.jpeg" target="_blank"><img src="photo15.jpeg"></a>
-    <a href="photo16.jpeg" target="_blank"><img src="photo16.jpeg"></a>
-    <a href="photo17.jpg" target="_blank"><img src="photo17.jpg"></a>
-    <a href="photo18.jpeg" target="_blank"><img src="photo18.jpeg"></a>
-    <a href="photo19.jpeg" target="_blank"><img src="photo19.jpeg"></a>
-    <a href="photo20.jpeg" target="_blank"><img src="photo20.jpeg"></a>
+ <a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
+ <a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
+ <a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
+ <a href="photo4.jpeg" target="_blank"><img src="photo4.jpeg"></a>
+ <a href="photo5.jpeg" target="_blank"><img src="photo5.jpeg"></a>
+ <a href="photo6.jpeg" target="_blank"><img src="photo6.jpeg"></a>
+ <a href="photo7.jpeg" target="_blank"><img src="photo7.jpeg"></a>
+ <a href="photo8.jpeg" target="_blank"><img src="photo8.jpeg"></a>
+ <a href="photo9.jpeg" target="_blank"><img src="photo9.jpeg"></a>
+ <a href="photo10.jpeg" target="_blank"><img src="photo10.jpeg"></a>
+ <a href="photo11.jpeg" target="_blank"><img src="photo11.jpeg"></a>
+ <a href="photo12.jpeg" target="_blank"><img src="photo12.jpeg"></a>
+ <a href="photo13.jpeg" target="_blank"><img src="photo13.jpeg"></a>
+ <a href="photo14.jpeg" target="_blank"><img src="photo14.jpeg"></a>
+ <a href="photo15.jpeg" target="_blank"><img src="photo15.jpeg"></a>
+ <a href="photo16.jpeg" target="_blank"><img src="photo16.jpeg"></a>
+ <a href="photo17.jpg" target="_blank"><img src="photo17.jpg"></a>
+ <a href="photo18.jpeg" target="_blank"><img src="photo18.jpeg"></a>
+ <a href="photo19.jpeg" target="_blank"><img src="photo19.jpeg"></a>
+ <a href="photo20.jpeg" target="_blank"><img src="photo20.jpeg"></a>
 </div>
 </section>
 
@@ -342,7 +346,3 @@ loadComments();
 
 </body>
 </html>
-
-
-
-
