@@ -75,10 +75,12 @@ footer{text-align:center;padding:25px;background:#000;color:#777}
 <h2>Comments</h2>
 
 <div class="admin">
-<input type="password" id="adminPin" placeholder="Admin PIN">
-<button onclick="adminLogin()">Login</button>
-<p id="adminStatus"></p>
+  <input type="password" id="adminPin" placeholder="Admin PIN">
+  <button onclick="adminLogin()">Login</button>
+  <button onclick="adminLogout()">Logout</button>
+  <p id="adminStatus"></p>
 </div>
+
 
 <div class="comment-box">
 <input id="name" placeholder="Your Name">
@@ -167,3 +169,4 @@ loadComments();
 
 </body>
 </html>
+
