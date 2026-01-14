@@ -6,48 +6,156 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial;}
-body{background:#0b0b0b;color:#fff}
-header{height:100vh;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url('cover.jpeg') center/cover;display:flex;align-items:center;justify-content:center}
-header img{width:90%;max-width:420px}
-nav{position:sticky;top:0;background:#000;padding:15px;text-align:center}
-nav a{color:#fff;margin:0 15px;text-decoration:none}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:linear-gradient(180deg,#0b0b0b,#111);color:#fff}
+
+/* HEADER */
+header{
+ height:100vh;
+ background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+ url('cover.jpeg') center/cover no-repeat;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center
+}
+header img{max-width:420px;width:90%}
+header p{margin-top:20px;color:#eee;letter-spacing:2px}
+
+/* NAV */
+nav{
+ position:sticky;
+ top:0;
+ background:rgba(0,0,0,.9);
+ padding:15px;
+ text-align:center;
+ z-index:10
+}
+nav a{color:#fff;margin:0 18px;text-decoration:none;font-weight:600}
+nav a:hover{color:#f5b041}
+
 section{padding:70px 10%}
-h2{text-align:center;margin-bottom:25px}
+h2{text-align:center;margin-bottom:25px;font-size:2.2rem}
 
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.gallery img{width:100%;border-radius:12px;transition:.4s}
-.gallery img:hover{transform:scale(1.08)}
+/* ABOUT */
+.about p{
+ max-width:750px;
+ margin:auto;
+ text-align:center;
+ color:#ccc;
+ line-height:1.8;
+ font-size:1.1rem
+}
 
-.comment-box{max-width:800px;margin:auto;background:rgba(255,255,255,.06);padding:30px;border-radius:15px}
-.comment-box input,textarea{width:100%;padding:12px;margin:10px 0;border:none;border-radius:8px}
-.comment-box button{background:#f5b041;border:none;padding:10px 25px;border-radius:25px;cursor:pointer}
+/* GALLERY */
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:25px
+}
+.gallery img{
+ width:100%;
+ border-radius:14px;
+ transition:.4s
+}
+.gallery img:hover{
+ transform:scale(1.08);
+ box-shadow:0 20px 40px rgba(0,0,0,.8)
+}
 
-.comment{background:#000;padding:15px;border-radius:12px;margin-top:15px}
+/* COMMENTS */
+.comment-box{
+ max-width:780px;
+ margin:auto;
+ background:rgba(255,255,255,.06);
+ padding:30px;
+ border-radius:18px
+}
+.comment-box input,
+.comment-box textarea{
+ width:100%;
+ padding:14px;
+ margin:12px 0;
+ border:none;
+ border-radius:10px
+}
+.comment-box button{
+ padding:12px 30px;
+ background:#f5b041;
+ border:none;
+ border-radius:30px;
+ font-weight:bold;
+ cursor:pointer
+}
+
+.comment{
+ background:#000;
+ padding:15px;
+ border-radius:12px;
+ margin-top:15px
+}
 .comment strong{color:#f5b041}
 .delete{color:red;cursor:pointer;font-size:.85rem}
-.reply{margin-left:20px;margin-top:8px;background:#111;padding:8px;border-radius:8px;font-size:.9rem}
-.reply-box textarea{margin-top:8px}
 
+.reply{
+ margin-left:20px;
+ margin-top:8px;
+ background:#111;
+ padding:8px;
+ border-radius:8px;
+ font-size:.9rem
+}
+
+/* ADMIN */
 .admin{text-align:center;margin-bottom:20px}
-footer{text-align:center;padding:25px;background:#000;color:#777}
+.admin input{padding:10px;border-radius:8px;border:none}
+.admin button{padding:8px 18px;margin-left:5px}
+
+/* CONTACT */
+.contact{text-align:center}
+.contact p{margin:10px 0;color:#ccc}
+
+footer{
+ background:#000;
+ padding:25px;
+ text-align:center;
+ color:#777
+}
 </style>
 </head>
 
 <body>
 
 <header>
+ <div>
   <img src="ankanclicks.png">
+  <p>Photography • Stories • Emotions</p>
+ </div>
 </header>
 
 <nav>
-  <a href="#gallery">Gallery</a>
-  <a href="#comments">Comments</a>
+ <a href="#about">About</a>
+ <a href="#gallery">Gallery</a>
+ <a href="#comments">Comments</a>
+ <a href="#contact">Contact</a>
 </nav>
 
+<!-- ABOUT -->
+<section id="about" class="about">
+<h2>About Me</h2>
+<p>
+আমি অঙ্কন, একজন ফটোগ্রাফার। আমার ক্যামেরার লেন্স শুধু ছবি তোলে না —
+আমার চোখ যা দেখে, হৃদয় যা অনুভব করে, আমি তা ধরে রাখি।<br><br>
+I am Ankan, a passionate photographer capturing emotions and stories.<br><br>
+<em style="color:#f5b041;">Through my lens, moments become memories.</em>
+</p>
+</section>
+
+<!-- GALLERY -->
 <section id="gallery">
 <h2>My Gallery</h2>
 <div class="gallery">
+<!-- 20 images -->
 <a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
 <a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
 <a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
@@ -71,28 +179,35 @@ footer{text-align:center;padding:25px;background:#000;color:#777}
 </div>
 </section>
 
+<!-- COMMENTS -->
 <section id="comments">
 <h2>Comments</h2>
 
 <div class="admin">
-  <input type="password" id="adminPin" placeholder="Admin PIN">
-  <button onclick="adminLogin()">Login</button>
-  <button onclick="adminLogout()">Logout</button>
-  <p id="adminStatus"></p>
+<input type="password" id="adminPin" placeholder="Admin PIN">
+<button onclick="adminLogin()">Login</button>
+<button onclick="adminLogout()">Logout</button>
+<p id="adminStatus"></p>
 </div>
-
 
 <div class="comment-box">
 <input id="name" placeholder="Your Name">
 <textarea id="message" placeholder="Your Comment"></textarea>
-<button onclick="saveComment()">Post</button>
+<button onclick="saveComment()">Post Comment</button>
 <div id="commentList"></div>
 </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h2>Contact Me</h2>
+<p>📧 Email: ankan2007sikdar21@gmail.com</p>
+<p>☎️ Phone: +91 9564996325</p>
+</section>
+
 <footer>© 2026 Ankan Clicks</footer>
 
-<!-- Firebase -->
+<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
@@ -106,22 +221,35 @@ firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
 
 const ADMIN_PIN="ANKAN123";
-let isAdmin=false;
+let isAdmin=localStorage.getItem("admin")==="true";
+
+if(isAdmin) adminStatus.innerText="Admin logged in";
 
 function adminLogin(){
- if(document.getElementById("adminPin").value===ADMIN_PIN){
+ if(adminPin.value===ADMIN_PIN){
   isAdmin=true;
-  document.getElementById("adminStatus").innerText="Admin logged in";
+  localStorage.setItem("admin","true");
+  adminStatus.innerText="Admin logged in";
   loadComments();
  } else alert("Wrong PIN");
 }
 
+function adminLogout(){
+ isAdmin=false;
+ localStorage.removeItem("admin");
+ adminStatus.innerText="Logged out";
+ loadComments();
+}
+
 function saveComment(){
- const n=name.value.trim();
- const m=message.value.trim();
- if(!n||!m)return alert("Fill all fields");
- db.collection("comments").add({name:n,message:m,time:firebase.firestore.FieldValue.serverTimestamp()})
- .then(()=>{name.value="";message.value="";loadComments();});
+ if(!name.value||!message.value)return alert("Fill all fields");
+ db.collection("comments").add({
+  name:name.value,
+  message:message.value,
+  time:firebase.firestore.FieldValue.serverTimestamp()
+ }).then(()=>{
+  name.value="";message.value="";loadComments();
+ });
 }
 
 function deleteComment(id){
@@ -144,14 +272,21 @@ function loadComments(){
    const c=d.data();
    const div=document.createElement("div");
    div.className="comment";
+
    div.innerHTML=`
     <strong>${c.name}</strong>
     <p>${c.message}</p>
     ${isAdmin?`<span class="delete" onclick="deleteComment('${d.id}')">Delete</span>`:""}
-    <div class="reply-box">
-     <textarea id="r${d.id}" placeholder="Reply"></textarea>
+   `;
+
+   // Admin reply only
+   if(isAdmin){
+    div.innerHTML+=`
+     <textarea id="r${d.id}" placeholder="Reply..."></textarea>
      <button onclick="addReply('${d.id}')">Reply</button>
-    </div>`;
+    `;
+   }
+
    d.ref.collection("replies").orderBy("time").get().then(r=>{
     r.forEach(x=>{
      const rp=document.createElement("div");
@@ -160,6 +295,7 @@ function loadComments(){
      div.appendChild(rp);
     });
    });
+
    commentList.appendChild(div);
   });
  });
@@ -169,4 +305,3 @@ loadComments();
 
 </body>
 </html>
-
