@@ -7,60 +7,82 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:linear-gradient(180deg,#0b0b0b,#111);color:#fff}
+body{background:#0b0b0b;color:#fff}
 
-/* HEADER */
-header{
+/* ===== SLIDER (COVER + GALLERY) ===== */
+.slider{
  height:100vh;
- background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
- url('cover.jpeg') center/cover no-repeat;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center
+ position:relative;
+ background-size:cover;
+ background-position:center;
+ animation:slideBg 20s infinite;
 }
-header img{max-width:420px;width:90%}
-header p{margin-top:20px;color:#eee;letter-spacing:2px}
+@keyframes slideBg{
+ 0%{background-image:url('cover.jpeg')}
+ 25%{background-image:url('cover2.jpeg')}
+ 50%{background-image:url('cover3.jpeg')}
+ 75%{background-image:url('cover2.jpeg')}
+ 100%{background-image:url('cover.jpeg')}
+}
+.overlay{
+ height:100%;
+ background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85));
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+}
+.logo{width:520px;max-width:90%}
+.overlay p{margin-top:20px;letter-spacing:2px;color:#ddd}
 
 /* NAV */
 nav{
- position:sticky;
- top:0;
- background:rgba(0,0,0,.9);
- padding:15px;
+ position:sticky;top:0;
+ background:#000;
+ padding:14px;
  text-align:center;
- z-index:10
+ z-index:99
 }
-nav a{color:#fff;margin:0 18px;text-decoration:none;font-weight:600}
+nav a{
+ color:#fff;
+ margin:0 15px;
+ text-decoration:none;
+ font-weight:600
+}
 nav a:hover{color:#f5b041}
 
+/* SECTIONS */
 section{padding:70px 10%}
-h2{text-align:center;margin-bottom:25px;font-size:2.2rem}
+h2{text-align:center;margin-bottom:30px}
 
 /* ABOUT */
 .about p{
- max-width:750px;
+ max-width:780px;
  margin:auto;
  text-align:center;
  color:#ccc;
  line-height:1.8;
- font-size:1.1rem
+ font-size:1.05rem
 }
 
-/* GALLERY */
-.gallery{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:25px
+/* GALLERY SLIDER */
+.gallery-slider{
+ position:relative;
+ overflow:hidden;
 }
-.gallery img{
- width:100%;
+.gallery-track{
+ display:flex;
+ animation:scroll 40s linear infinite;
+}
+.gallery-track img{
+ width:280px;
+ margin-right:18px;
  border-radius:14px;
- transition:.4s
 }
-.gallery img:hover{
- transform:scale(1.08);
- box-shadow:0 20px 40px rgba(0,0,0,.8)
+@keyframes scroll{
+ 0%{transform:translateX(0)}
+ 100%{transform:translateX(-50%)}
 }
 
 /* COMMENTS */
@@ -87,7 +109,6 @@ h2{text-align:center;margin-bottom:25px;font-size:2.2rem}
  font-weight:bold;
  cursor:pointer
 }
-
 .comment{
  background:#000;
  padding:15px;
@@ -96,7 +117,6 @@ h2{text-align:center;margin-bottom:25px;font-size:2.2rem}
 }
 .comment strong{color:#f5b041}
 .delete{color:red;cursor:pointer;font-size:.85rem}
-
 .reply{
  margin-left:20px;
  margin-top:8px;
@@ -112,58 +132,19 @@ h2{text-align:center;margin-bottom:25px;font-size:2.2rem}
 .admin button{padding:8px 18px;margin-left:5px}
 
 /* CONTACT */
-.contact{text-align:center}
-.contact p{margin:10px 0;color:#ccc}
-
-footer{
- background:#000;
- padding:25px;
- text-align:center;
- color:#777
-}
- /* ===== SLIDING COVER PAGE ===== */
-.slider{
-  height:100vh;
-  position:relative;
-  background-size:cover;
-  background-position:center;
-  animation:slideBg 18s infinite;
-}
-
-@keyframes slideBg{
-  0%   {background-image:url('cover.jpeg')}
-  33%  {background-image:url('cover2.jpeg')}
-  66%  {background-image:url('cover3.jpeg')}
-  100% {background-image:url('cover.jpeg')}
-}
-
-.slider .overlay{
-  height:100%;
-  width:100%;
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8));
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-/* BIG LOGO */
-.logo{
-  width:520px;
-  max-width:90%;
-}
-
+.contact{text-align:center;color:#ccc}
+footer{background:#000;padding:25px;text-align:center;color:#777}
 </style>
 </head>
 
 <body>
 
+<!-- COVER -->
 <header class="slider">
-  <div class="overlay">
-    <img src="ankanclicks.png" class="logo">
-    <p>Photography • Stories • Emotions</p>
-  </div>
+ <div class="overlay">
+  <img src="ankanclicks.png" class="logo">
+  <p>Photography • Stories • Emotions</p>
+ </div>
 </header>
 
 <nav>
@@ -177,47 +158,30 @@ footer{
 <section id="about" class="about">
 <h2>About Me</h2>
 <p>
-আমি অঙ্কন — একজন ফটোগ্রাফার।
-আমার কাছে ফটোগ্রাফি শুধু ছবি তোলা নয়, এটা অনুভূতি ধরে রাখার এক শিল্প। আমার ক্যামেরার লেন্স শুধু দৃশ্য বন্দি করে না; আমার চোখ যা দেখে, হৃদয় যা অনুভব করে, আমি তা-ই ফ্রেমে তুলে আনি।
-
-প্রতিটি মুহূর্তের একটি গল্প থাকে—হোক তা একটি হাসি, এক চুপচাপ তাকিয়ে থাকা চোখ, কিংবা আলো-ছায়ার নিঃশব্দ খেলা। আমি বিশ্বাস করি, একটি ভালো ছবি সময়কে থামিয়ে দিতে পারে, স্মৃতিকে জীবন্ত রাখতে পারে। সেই বিশ্বাস থেকেই আমি প্রতিটি ছবি তুলি যত্ন, ধৈর্য এবং গভীর আবেগ নিয়ে।
-
-পোর্ট্রেট, নেচার, স্ট্রিট বা বিশেষ মুহূর্ত—যাই হোক না কেন, আমার চেষ্টা থাকে বাস্তবতা ও অনুভূতির সঠিক মেলবন্ধন তৈরি করা। কারণ আমার কাছে ফটোগ্রাফি মানে শুধু দেখা নয়, অনুভব করা।<br><br>
-I am Ankan — a photographer.
-For me, photography is not just about capturing images; it is about preserving emotions. My camera lens doesn’t merely take pictures—it captures what my eyes see and what my heart feels.
-
-Every moment has a story to tell—a smile, a silent gaze, or the gentle play of light and shadow. I believe a powerful photograph can freeze time and keep memories alive forever. With that belief, I approach every frame with patience, passion, and attention to detail.
-
-Whether it’s portraits, nature, street photography, or special moments, my goal is always to create images that feel real, meaningful, and emotionally connected. Because to me, photography is not just about seeing—it’s about feeling.<br><br>
-<em style="color:#f5b041;">Through my lens, moments become memories.</em>
+আমি অঙ্কন — একজন ফটোগ্রাফার।  
+Photography for me is emotion, not just images.  
+Through my lens, moments become memories.
 </p>
 </section>
 
-<!-- GALLERY -->
+<!-- GALLERY SLIDER -->
 <section id="gallery">
 <h2>My Gallery</h2>
-<div class="gallery">
-<!-- 20 images -->
-<a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
-<a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
-<a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
-<a href="photo4.jpeg" target="_blank"><img src="photo4.jpeg"></a>
-<a href="photo5.jpeg" target="_blank"><img src="photo5.jpeg"></a>
-<a href="photo6.jpeg" target="_blank"><img src="photo6.jpeg"></a>
-<a href="photo7.jpeg" target="_blank"><img src="photo7.jpeg"></a>
-<a href="photo8.jpeg" target="_blank"><img src="photo8.jpeg"></a>
-<a href="photo9.jpeg" target="_blank"><img src="photo9.jpeg"></a>
-<a href="photo10.jpeg" target="_blank"><img src="photo10.jpeg"></a>
-<a href="photo11.jpeg" target="_blank"><img src="photo11.jpeg"></a>
-<a href="photo12.jpeg" target="_blank"><img src="photo12.jpeg"></a>
-<a href="photo13.jpeg" target="_blank"><img src="photo13.jpeg"></a>
-<a href="photo14.jpeg" target="_blank"><img src="photo14.jpeg"></a>
-<a href="photo15.jpeg" target="_blank"><img src="photo15.jpeg"></a>
-<a href="photo16.jpeg" target="_blank"><img src="photo16.jpeg"></a>
-<a href="photo17.jpeg" target="_blank"><img src="photo17.jpeg"></a>
-<a href="photo18.jpeg" target="_blank"><img src="photo18.jpeg"></a>
-<a href="photo19.jpeg" target="_blank"><img src="photo19.jpeg"></a>
-<a href="photo20.jpeg" target="_blank"><img src="photo20.jpeg"></a>
+<div class="gallery-slider">
+ <div class="gallery-track">
+  <!-- duplicate images for smooth loop -->
+  <img src="photo1.jpeg"><img src="photo2.jpeg"><img src="photo3.jpeg">
+  <img src="photo4.jpeg"><img src="photo5.jpeg"><img src="photo6.jpeg">
+  <img src="photo7.jpeg"><img src="photo8.jpeg"><img src="photo9.jpeg">
+  <img src="photo10.jpeg"><img src="photo11.jpeg"><img src="photo12.jpeg">
+  <img src="photo13.jpeg"><img src="photo14.jpeg"><img src="photo15.jpeg">
+  <img src="photo16.jpeg"><img src="photo17.jpeg"><img src="photo18.jpeg">
+  <img src="photo19.jpeg"><img src="photo20.jpeg">
+
+  <!-- duplicate -->
+  <img src="photo1.jpeg"><img src="photo2.jpeg"><img src="photo3.jpeg">
+  <img src="photo4.jpeg"><img src="photo5.jpeg"><img src="photo6.jpeg">
+ </div>
 </div>
 </section>
 
@@ -226,25 +190,25 @@ Whether it’s portraits, nature, street photography, or special moments, my goa
 <h2>Comments</h2>
 
 <div class="admin">
-<input type="password" id="adminPin" placeholder="Admin PIN">
-<button onclick="adminLogin()">Login</button>
-<button onclick="adminLogout()">Logout</button>
-<p id="adminStatus"></p>
+ <input type="password" id="adminPin" placeholder="Admin PIN">
+ <button onclick="adminLogin()">Login</button>
+ <button onclick="adminLogout()">Logout</button>
+ <p id="adminStatus"></p>
 </div>
 
 <div class="comment-box">
-<input id="name" placeholder="Your Name">
-<textarea id="message" placeholder="Your Comment"></textarea>
-<button onclick="saveComment()">Post Comment</button>
-<div id="commentList"></div>
+ <input id="name" placeholder="Your Name">
+ <textarea id="message" placeholder="Your Comment"></textarea>
+ <button onclick="saveComment()">Post Comment</button>
+ <div id="commentList"></div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
 <h2>Contact Me</h2>
-<p>📧 Email: ankan2007sikdar21@gmail.com</p>
-<p>☎️ Phone: +91 9564996325</p>
+<p>📧 ankan2007sikdar21@gmail.com</p>
+<p>📞 +91 9564996325</p>
 </section>
 
 <footer>© 2026 Ankan Clicks</footer>
@@ -262,10 +226,15 @@ const firebaseConfig={
 firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
 
+const nameInput=document.getElementById("name");
+const messageInput=document.getElementById("message");
+const commentList=document.getElementById("commentList");
+const adminStatus=document.getElementById("adminStatus");
+const adminPin=document.getElementById("adminPin");
+
 const ADMIN_PIN="ANKAN123";
 let isAdmin=localStorage.getItem("admin")==="true";
-
-if(isAdmin) adminStatus.innerText="Admin logged in";
+if(isAdmin)adminStatus.innerText="Admin logged in";
 
 function adminLogin(){
  if(adminPin.value===ADMIN_PIN){
@@ -273,9 +242,8 @@ function adminLogin(){
   localStorage.setItem("admin","true");
   adminStatus.innerText="Admin logged in";
   loadComments();
- } else alert("Wrong PIN");
+ }else alert("Wrong PIN");
 }
-
 function adminLogout(){
  isAdmin=false;
  localStorage.removeItem("admin");
@@ -284,13 +252,17 @@ function adminLogout(){
 }
 
 function saveComment(){
- if(!name.value||!message.value)return alert("Fill all fields");
+ if(!nameInput.value.trim()||!messageInput.value.trim()){
+  alert("Fill all fields");return;
+ }
  db.collection("comments").add({
-  name:name.value,
-  message:message.value,
+  name:nameInput.value.trim(),
+  message:messageInput.value.trim(),
   time:firebase.firestore.FieldValue.serverTimestamp()
  }).then(()=>{
-  name.value="";message.value="";loadComments();
+  nameInput.value="";
+  messageInput.value="";
+  loadComments();
  });
 }
 
@@ -314,21 +286,17 @@ function loadComments(){
    const c=d.data();
    const div=document.createElement("div");
    div.className="comment";
-
    div.innerHTML=`
     <strong>${c.name}</strong>
     <p>${c.message}</p>
     ${isAdmin?`<span class="delete" onclick="deleteComment('${d.id}')">Delete</span>`:""}
    `;
-
-   // Admin reply only
    if(isAdmin){
     div.innerHTML+=`
      <textarea id="r${d.id}" placeholder="Reply..."></textarea>
      <button onclick="addReply('${d.id}')">Reply</button>
     `;
    }
-
    d.ref.collection("replies").orderBy("time").get().then(r=>{
     r.forEach(x=>{
      const rp=document.createElement("div");
@@ -337,7 +305,6 @@ function loadComments(){
      div.appendChild(rp);
     });
    });
-
    commentList.appendChild(div);
   });
  });
@@ -347,5 +314,3 @@ loadComments();
 
 </body>
 </html>
-
-
