@@ -1,97 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Ankan Clicks</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Ankan Clicks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Arial, sans-serif;}
-        body{background:linear-gradient(180deg,#0b0b0b,#111);color:#fff;}
-        header{height:100vh;background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)), url('cover.jpeg') center/cover no-repeat; display:flex;align-items:center;justify-content:center;text-align:center;}
-        header img{max-width:420px;width:90%;filter:drop-shadow(0 10px 25px rgba(0,0,0,0.6));}
-        header p{margin-top:22px;font-size:1.3rem;letter-spacing:2px;color:#eee;}
-        nav{position:sticky;top:0;background:rgba(0,0,0,0.9);padding:15px;text-align:center;z-index:10;backdrop-filter:blur(6px);}
-        nav a{color:#fff;text-decoration:none;margin:0 18px;font-weight:600;letter-spacing:1px;}
-        nav a:hover{color:#f5b041;}
-        section{padding:70px 10%;}
-        h2{text-align:center;margin-bottom:25px;font-size:2.3rem;}
-        .about p{max-width:750px;margin:auto;text-align:center;color:#ccc;line-height:1.8;font-size:1.1rem;}
-        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
-        .gallery img{width:100%;border-radius:14px;transition:0.4s;}
-        .gallery img:hover{transform:scale(1.08);box-shadow:0 20px 40px rgba(0,0,0,0.8);}
-        .comment-box{max-width:720px;margin:auto;background:rgba(255,255,255,0.06);padding:30px;border-radius:18px;backdrop-filter:blur(8px);}
-        .comment-box input, .comment-box textarea{width:100%;padding:14px;margin:12px 0;border:none;border-radius:10px;outline:none;font-size:1rem;}
-        .comment-box button{padding:12px 30px;background:#f5b041;border:none;border-radius:30px;font-weight:bold;cursor:pointer;}
-        .comment-box button:hover{background:#ffcc70;}
-        .comment{background:rgba(0,0,0,0.55);padding:15px;border-radius:12px;margin-top:15px;}
-        .comment strong{color:#f5b041;display:block;margin-bottom:5px;}
-        .contact{text-align:center;}
-        .contact p{margin:12px 0;color:#ccc;}
-        footer{background:#000;padding:25px;text-align:center;color:#777;}
-    </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Arial, sans-serif;}
+body{background:linear-gradient(180deg,#0b0b0b,#111);color:#fff;}
+header{height:100vh;background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)), url('cover.jpeg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;}
+header img{max-width:420px;width:90%;filter:drop-shadow(0 10px 25px rgba(0,0,0,0.6));}
+header p{margin-top:22px;font-size:1.3rem;letter-spacing:2px;color:#eee;}
+nav{position:sticky;top:0;background:rgba(0,0,0,0.9);padding:15px;text-align:center;z-index:10;backdrop-filter:blur(6px);}
+nav a{color:#fff;text-decoration:none;margin:0 18px;font-weight:600;letter-spacing:1px;}
+nav a:hover{color:#f5b041;}
+section{padding:70px 10%;}
+h2{text-align:center;margin-bottom:25px;font-size:2.3rem;}
+.about p{max-width:750px;margin:auto;text-align:center;color:#ccc;line-height:1.8;font-size:1.1rem;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
+.gallery img{width:100%;border-radius:14px;transition:0.4s;}
+.gallery img:hover{transform:scale(1.08);box-shadow:0 20px 40px rgba(0,0,0,0.8);}
+.comment-box{max-width:720px;margin:auto;background:rgba(255,255,255,0.06);padding:30px;border-radius:18px;backdrop-filter:blur(8px);}
+.comment-box input, .comment-box textarea{width:100%;padding:14px;margin:12px 0;border:none;border-radius:10px;outline:none;font-size:1rem;}
+.comment-box button{padding:12px 30px;background:#f5b041;border:none;border-radius:30px;font-weight:bold;cursor:pointer;}
+.comment-box button:hover{background:#ffcc70;}
+.comment{background:rgba(0,0,0,0.55);padding:15px;border-radius:12px;margin-top:15px;}
+.comment strong{color:#f5b041;display:block;margin-bottom:5px;}
+.contact{text-align:center;}
+.contact p{margin:12px 0;color:#ccc;}
+footer{background:#000;padding:25px;text-align:center;color:#777;}
+</style>
 </head>
+
 <body>
 
 <header>
-    <div>
-        <img src="ankanclicks.png" alt="Ankan Clicks">
-        <p>Photography • Stories • Emotions</p>
-    </div>
+<div>
+    <img src="ankanclicks.png" alt="Ankan Clicks">
+    <p>Photography • Stories • Emotions</p>
+</div>
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#comments">Comments</a>
-    <a href="#contact">Contact</a>
+<a href="#about">About</a>
+<a href="#gallery">Gallery</a>
+<a href="#comments">Comments</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>
-        আমি অঙ্কন, একজন ফটোগ্রাফার। আমার ক্যামেরার লেন্স শুধু ছবি তোলে না — আমার চোখ যা দেখে, হৃদয় যা অনুভব করে, আমি তা ধরে রাখি। প্রতিটি মুহূর্ত আমার কাছে গল্প।<br><br>
-        I am Ankan, a passionate photographer. My camera captures emotions, memories and untold stories.<br><br>
-        <em style="color:#f5b041;">Through my lens, moments become memories.</em>
-    </p>
+<h2>About Me</h2>
+<p>
+আমি অঙ্কন, একজন ফটোগ্রাফার। আমার ক্যামেরার লেন্স শুধু ছবি তোলে না — আমার চোখ যা দেখে, হৃদয় যা অনুভব করে, আমি তা ধরে রাখি। প্রতিটি মুহূর্ত আমার কাছে গল্প।<br><br>
+I am Ankan, a passionate photographer. My camera captures emotions, memories and untold stories.<br><br>
+<em style="color:#f5b041;">Through my lens, moments become memories.</em>
+</p>
 </section>
 
 <section id="gallery">
-    <h2>My Gallery</h2>
-    <div class="gallery">
-        <a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
-        <a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
-        <a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
-        <a href="photo4.jpeg" target="_blank"><img src="photo4.jpeg"></a>
-    </div>
+<h2>My Gallery</h2>
+<div class="gallery">
+    <a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
+    <a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
+    <a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
+    <a href="photo4.jpeg" target="_blank"><img src="photo4.jpeg"></a>
+</div>
 </section>
 
 <section id="comments">
-    <h2>Leave a Comment</h2>
-    <div class="comment-box">
-        <input type="text" id="name" placeholder="Your Name">
-        <textarea id="message" rows="4" placeholder="Your Comment"></textarea>
-        <button onclick="saveComment()">Post Comment</button>
-        <div id="commentList"></div>
-    </div>
+<h2>Leave a Comment</h2>
+<div class="comment-box">
+<input type="text" id="name" placeholder="Your Name">
+<textarea id="message" rows="4" placeholder="Your Comment"></textarea>
+<button onclick="saveComment()">Post Comment</button>
+<div id="commentList"></div>
+</div>
 </section>
 
 <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>📧 Email: ankan2007sikdar21@gmail.com</p>
-    <p>☎️ Phone: +919564996325</p>
+<h2>Contact Me</h2>
+<p>📧 Email: ankan2007sikdar21@gmail.com</p>
+<p>☎️ Phone: +919564996325</p>
 </section>
 
 <footer>
-    © 2026 Ankan Clicks | All Rights Reserved
+© 2026 Ankan Clicks | All Rights Reserved
 </footer>
 
-<!-- Firebase JS (compat version) -->
+<!-- Firebase JS (compat version for browser) -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
 <script>
-  // Firebase config (তুমি Firebase থেকে যা পেয়েছো সেটা বসাও)
+  // Firebase config – এখানে Firebase থেকে নেওয়া config বসাও
   const firebaseConfig = {
     apiKey: "AIzaSyDFBtQJXSrupeS0XZx8KINJM1Zpsp8M8xQ",
     authDomain: "ankanclicks-comment.firebaseapp.com",
@@ -144,10 +145,8 @@
       });
   }
 
-  // Load comments on page load
   loadComments();
 </script>
 
 </body>
 </html>
-
