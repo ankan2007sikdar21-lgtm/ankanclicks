@@ -6,164 +6,164 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Arial, sans-serif;}
-body{background:linear-gradient(180deg,#0b0b0b,#111);color:#fff;}
-header{height:100vh;background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)), url('cover.jpeg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;}
-header img{max-width:420px;width:90%;filter:drop-shadow(0 10px 25px rgba(0,0,0,0.6));}
-header p{margin-top:22px;font-size:1.3rem;letter-spacing:2px;color:#eee;}
-nav{position:sticky;top:0;background:rgba(0,0,0,0.9);padding:15px;text-align:center;z-index:10;backdrop-filter:blur(6px);}
-nav a{color:#fff;text-decoration:none;margin:0 18px;font-weight:600;letter-spacing:1px;}
-nav a:hover{color:#f5b041;}
-section{padding:70px 10%;}
-h2{text-align:center;margin-bottom:25px;font-size:2.3rem;}
-.about p{max-width:750px;margin:auto;text-align:center;color:#ccc;line-height:1.8;font-size:1.1rem;}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
-.gallery img{width:100%;border-radius:14px;transition:0.4s;}
-.gallery img:hover{transform:scale(1.08);box-shadow:0 20px 40px rgba(0,0,0,0.8);}
-.comment-box{max-width:720px;margin:auto;background:rgba(255,255,255,0.06);padding:30px;border-radius:18px;backdrop-filter:blur(8px);}
-.comment-box input, .comment-box textarea{width:100%;padding:14px;margin:12px 0;border:none;border-radius:10px;outline:none;font-size:1rem;}
-.comment-box button{padding:12px 30px;background:#f5b041;border:none;border-radius:30px;font-weight:bold;cursor:pointer;}
-.comment-box button:hover{background:#ffcc70;}
-.comment{background:rgba(0,0,0,0.55);padding:15px;border-radius:12px;margin-top:15px;}
-.comment strong{color:#f5b041;display:block;margin-bottom:5px;}
-.contact{text-align:center;}
-.contact p{margin:12px 0;color:#ccc;}
-footer{background:#000;padding:25px;text-align:center;color:#777;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial;}
+body{background:#0b0b0b;color:#fff}
+header{height:100vh;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url('cover.jpeg') center/cover;display:flex;align-items:center;justify-content:center}
+header img{width:90%;max-width:420px}
+nav{position:sticky;top:0;background:#000;padding:15px;text-align:center}
+nav a{color:#fff;margin:0 15px;text-decoration:none}
+section{padding:70px 10%}
+h2{text-align:center;margin-bottom:25px}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.gallery img{width:100%;border-radius:12px;transition:.4s}
+.gallery img:hover{transform:scale(1.08)}
+
+.comment-box{max-width:800px;margin:auto;background:rgba(255,255,255,.06);padding:30px;border-radius:15px}
+.comment-box input,textarea{width:100%;padding:12px;margin:10px 0;border:none;border-radius:8px}
+.comment-box button{background:#f5b041;border:none;padding:10px 25px;border-radius:25px;cursor:pointer}
+
+.comment{background:#000;padding:15px;border-radius:12px;margin-top:15px}
+.comment strong{color:#f5b041}
+.delete{color:red;cursor:pointer;font-size:.85rem}
+.reply{margin-left:20px;margin-top:8px;background:#111;padding:8px;border-radius:8px;font-size:.9rem}
+.reply-box textarea{margin-top:8px}
+
+.admin{text-align:center;margin-bottom:20px}
+footer{text-align:center;padding:25px;background:#000;color:#777}
 </style>
 </head>
 
 <body>
 
 <header>
-<div>
-    <img src="ankanclicks.png" alt="Ankan Clicks">
-    <p>Photography • Stories • Emotions</p>
-</div>
+  <img src="ankanclicks.png">
 </header>
 
 <nav>
-<a href="#about">About</a>
-<a href="#gallery">Gallery</a>
-<a href="#comments">Comments</a>
-<a href="#contact">Contact</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#comments">Comments</a>
 </nav>
-
-<section id="about" class="about">
-<h2>About Me</h2>
-<p>
-আমি অঙ্কন, একজন ফটোগ্রাফার। আমার ক্যামেরার লেন্স শুধু ছবি তোলে না — আমার চোখ যা দেখে, হৃদয় যা অনুভব করে, আমি তা ধরে রাখি। প্রতিটি মুহূর্ত আমার কাছে গল্প।<br><br>
-I am Ankan, a passionate photographer. My camera captures emotions, memories and untold stories.<br><br>
-<em style="color:#f5b041;">Through my lens, moments become memories.</em>
-</p>
-</section>
 
 <section id="gallery">
 <h2>My Gallery</h2>
 <div class="gallery">
-    <a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
-    <a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
-    <a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
-    <a href="photo4.jpeg" target="_blank"><img src="photo4.jpeg"></a>
-    <a href="photo5.jpeg" target="_blank"><img src="photo5.jpeg"></a>
-    <a href="photo6.jpeg" target="_blank"><img src="photo6.jpeg"></a>
-    <a href="photo7.jpeg" target="_blank"><img src="photo7.jpeg"></a>
-    <a href="photo8.jpeg" target="_blank"><img src="photo8.jpeg"></a>
-    <a href="photo9.jpeg" target="_blank"><img src="photo9.jpeg"></a>
-    <a href="photo10.jpeg" target="_blank"><img src="photo10.jpeg"></a>
-    <a href="photo11.jpeg" target="_blank"><img src="photo11.jpeg"></a>
-    <a href="photo12.jpeg" target="_blank"><img src="photo12.jpeg"></a>
-    <a href="photo13.jpeg" target="_blank"><img src="photo13.jpeg"></a>
-    <a href="photo14.jpeg" target="_blank"><img src="photo14.jpeg"></a>
-    <a href="photo15.jpeg" target="_blank"><img src="photo15.jpeg"></a>
-    <a href="photo16.jpeg" target="_blank"><img src="photo16.jpeg"></a>
-    <a href="photo17.jpg" target="_blank"><img src="photo17.jpg"></a>
-    <a href="photo18.jpeg" target="_blank"><img src="photo18.jpeg"></a>
-    <a href="photo19.jpeg" target="_blank"><img src="photo19.jpeg"></a>
-    <a href="photo20.jpeg" target="_blank"><img src="photo20.jpeg"></a>
+<a href="photo1.jpeg" target="_blank"><img src="photo1.jpeg"></a>
+<a href="photo2.jpeg" target="_blank"><img src="photo2.jpeg"></a>
+<a href="photo3.jpeg" target="_blank"><img src="photo3.jpeg"></a>
+<a href="photo4.jpeg" target="_blank"><img src="photo4.jpeg"></a>
+<a href="photo5.jpeg" target="_blank"><img src="photo5.jpeg"></a>
+<a href="photo6.jpeg" target="_blank"><img src="photo6.jpeg"></a>
+<a href="photo7.jpeg" target="_blank"><img src="photo7.jpeg"></a>
+<a href="photo8.jpeg" target="_blank"><img src="photo8.jpeg"></a>
+<a href="photo9.jpeg" target="_blank"><img src="photo9.jpeg"></a>
+<a href="photo10.jpeg" target="_blank"><img src="photo10.jpeg"></a>
+<a href="photo11.jpeg" target="_blank"><img src="photo11.jpeg"></a>
+<a href="photo12.jpeg" target="_blank"><img src="photo12.jpeg"></a>
+<a href="photo13.jpeg" target="_blank"><img src="photo13.jpeg"></a>
+<a href="photo14.jpeg" target="_blank"><img src="photo14.jpeg"></a>
+<a href="photo15.jpeg" target="_blank"><img src="photo15.jpeg"></a>
+<a href="photo16.jpeg" target="_blank"><img src="photo16.jpeg"></a>
+<a href="photo17.jpeg" target="_blank"><img src="photo17.jpeg"></a>
+<a href="photo18.jpeg" target="_blank"><img src="photo18.jpeg"></a>
+<a href="photo19.jpeg" target="_blank"><img src="photo19.jpeg"></a>
+<a href="photo20.jpeg" target="_blank"><img src="photo20.jpeg"></a>
 </div>
 </section>
 
 <section id="comments">
-<h2>Leave a Comment</h2>
+<h2>Comments</h2>
+
+<div class="admin">
+<input type="password" id="adminPin" placeholder="Admin PIN">
+<button onclick="adminLogin()">Login</button>
+<p id="adminStatus"></p>
+</div>
+
 <div class="comment-box">
-<input type="text" id="name" placeholder="Your Name">
-<textarea id="message" rows="4" placeholder="Your Comment"></textarea>
-<button onclick="saveComment()">Post Comment</button>
+<input id="name" placeholder="Your Name">
+<textarea id="message" placeholder="Your Comment"></textarea>
+<button onclick="saveComment()">Post</button>
 <div id="commentList"></div>
 </div>
 </section>
 
-<section id="contact" class="contact">
-<h2>Contact Me</h2>
-<p>📧 Email: ankan2007sikdar21@gmail.com</p>
-<p>☎️ Phone: +919564996325</p>
-</section>
+<footer>© 2026 Ankan Clicks</footer>
 
-<footer>
-© 2026 Ankan Clicks | All Rights Reserved
-</footer>
-
-<!-- Firebase JS (compat version for browser) -->
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
 <script>
-  // Firebase config – এখানে Firebase থেকে নেওয়া config বসাও
-  const firebaseConfig = {
-    apiKey: "AIzaSyDFBtQJXSrupeS0XZx8KINJM1Zpsp8M8xQ",
-    authDomain: "ankanclicks-comment.firebaseapp.com",
-    projectId: "ankanclicks-comment",
-    storageBucket: "ankanclicks-comment.firebasestorage.app",
-    messagingSenderId: "430453254345",
-    appId: "1:430453254345:web:5081a0d11cb7f0cf968518",
-    measurementId: "G-9CHYQZPERN"
-  };
+const firebaseConfig={
+ apiKey:"AIzaSyDFBtQJXSrupeS0XZx8KINJM1Zpsp8M8xQ",
+ authDomain:"ankanclicks-comment.firebaseapp.com",
+ projectId:"ankanclicks-comment"
+};
+firebase.initializeApp(firebaseConfig);
+const db=firebase.firestore();
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+const ADMIN_PIN="ANKAN123";
+let isAdmin=false;
 
-  const commentList = document.getElementById("commentList");
-
-  function loadComments() {
-      commentList.innerHTML = "";
-      db.collection("comments").orderBy("time", "desc").get().then(snapshot => {
-          snapshot.forEach(doc => {
-              const c = doc.data();
-              const div = document.createElement("div");
-              div.className = "comment";
-              div.innerHTML = `<strong>${c.name}</strong>${c.message}`;
-              commentList.appendChild(div);
-          });
-      });
-  }
-
-  function saveComment() {
-      const name = document.getElementById("name").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (!name || !message) {
-          alert("Please enter name and comment");
-          return;
-      }
-
-      db.collection("comments").add({
-          name,
-          message,
-          time: firebase.firestore.FieldValue.serverTimestamp()
-      }).then(() => {
-          document.getElementById("name").value = "";
-          document.getElementById("message").value = "";
-          loadComments();
-      }).catch(err => {
-          console.error(err);
-          alert("Error saving comment");
-      });
-  }
-
+function adminLogin(){
+ if(document.getElementById("adminPin").value===ADMIN_PIN){
+  isAdmin=true;
+  document.getElementById("adminStatus").innerText="Admin logged in";
   loadComments();
+ } else alert("Wrong PIN");
+}
+
+function saveComment(){
+ const n=name.value.trim();
+ const m=message.value.trim();
+ if(!n||!m)return alert("Fill all fields");
+ db.collection("comments").add({name:n,message:m,time:firebase.firestore.FieldValue.serverTimestamp()})
+ .then(()=>{name.value="";message.value="";loadComments();});
+}
+
+function deleteComment(id){
+ if(!isAdmin)return;
+ db.collection("comments").doc(id).delete().then(loadComments);
+}
+
+function addReply(id){
+ const t=document.getElementById("r"+id).value.trim();
+ if(!t)return;
+ db.collection("comments").doc(id).collection("replies")
+ .add({text:t,time:firebase.firestore.FieldValue.serverTimestamp()})
+ .then(loadComments);
+}
+
+function loadComments(){
+ commentList.innerHTML="";
+ db.collection("comments").orderBy("time","desc").get().then(s=>{
+  s.forEach(d=>{
+   const c=d.data();
+   const div=document.createElement("div");
+   div.className="comment";
+   div.innerHTML=`
+    <strong>${c.name}</strong>
+    <p>${c.message}</p>
+    ${isAdmin?`<span class="delete" onclick="deleteComment('${d.id}')">Delete</span>`:""}
+    <div class="reply-box">
+     <textarea id="r${d.id}" placeholder="Reply"></textarea>
+     <button onclick="addReply('${d.id}')">Reply</button>
+    </div>`;
+   d.ref.collection("replies").orderBy("time").get().then(r=>{
+    r.forEach(x=>{
+     const rp=document.createElement("div");
+     rp.className="reply";
+     rp.innerText=x.data().text;
+     div.appendChild(rp);
+    });
+   });
+   commentList.appendChild(div);
+  });
+ });
+}
+loadComments();
 </script>
 
 </body>
 </html>
-
