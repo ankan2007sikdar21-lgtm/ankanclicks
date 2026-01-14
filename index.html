@@ -121,16 +121,49 @@ footer{
  text-align:center;
  color:#777
 }
+ /* ===== SLIDING COVER PAGE ===== */
+.slider{
+  height:100vh;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  animation:slideBg 18s infinite;
+}
+
+@keyframes slideBg{
+  0%   {background-image:url('cover.jpeg')}
+  33%  {background-image:url('cover2.jpeg')}
+  66%  {background-image:url('cover3.jpeg')}
+  100% {background-image:url('cover.jpeg')}
+}
+
+.slider .overlay{
+  height:100%;
+  width:100%;
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+/* BIG LOGO */
+.logo{
+  width:520px;
+  max-width:90%;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
- <div>
-  <img src="ankanclicks.png">
-  <p>Photography • Stories • Emotions</p>
- </div>
+<header class="slider">
+  <div class="overlay">
+    <img src="ankanclicks.png" class="logo">
+    <p>Photography • Stories • Emotions</p>
+  </div>
 </header>
 
 <nav>
@@ -305,3 +338,4 @@ loadComments();
 
 </body>
 </html>
+
