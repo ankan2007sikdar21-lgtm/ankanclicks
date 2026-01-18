@@ -217,6 +217,24 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
   <a href="photo19.jpeg" target="_blank"><img src="photo19.jpeg" alt="Highlight 1" style="max-height:100%; border-radius:12px; cursor:pointer;"></a>
   <a href="photo20.jpeg" target="_blank"><img src="photo20.jpeg" alt="Highlight 2" style="max-height:100%; border-radius:12px; cursor:pointer;"></a>
 </div>
+<!-- COMMENTS -->
+<section id="comments">
+<h2>Comments</h2>
+
+<div class="admin">
+ <input type="password" id="adminPin" placeholder="Admin PIN">
+ <button onclick="adminLogin()">Login</button>
+ <button onclick="adminLogout()">Logout</button>
+ <p id="adminStatus"></p>
+</div>
+
+<div class="comment-box">
+ <input id="name" placeholder="Your Name">
+ <textarea id="message" placeholder="Your Comment"></textarea>
+ <button onclick="saveComment()">Post Comment</button>
+ <div id="commentList"></div>
+</div>
+</section>
 
 <script>
 // Auto slideshow for highlights
@@ -266,24 +284,7 @@ setInterval(showNextHighlight, 3000); // every 3 seconds
 
 </section>
 
-<!-- COMMENTS -->
-<section id="comments">
-<h2>Comments</h2>
 
-<div class="admin">
- <input type="password" id="adminPin" placeholder="Admin PIN">
- <button onclick="adminLogin()">Login</button>
- <button onclick="adminLogout()">Logout</button>
- <p id="adminStatus"></p>
-</div>
-
-<div class="comment-box">
- <input id="name" placeholder="Your Name">
- <textarea id="message" placeholder="Your Comment"></textarea>
- <button onclick="saveComment()">Post Comment</button>
- <div id="commentList"></div>
-</div>
-</section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
@@ -395,4 +396,5 @@ loadComments();
 
 </body>
 </html>
+
 
