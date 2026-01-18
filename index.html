@@ -236,15 +236,25 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
  <img src="photo20.jpeg">
 </div>
 
-<!-- COMMENTS UNDER NEW UPLOADED -->
+<!-- COMMENTS (New Uploaded er niche) -->
 <section id="comments">
 <h2>Comments</h2>
+
+<div class="admin">
+ <input type="password" id="adminPin" placeholder="Admin PIN">
+ <button onclick="adminLogin()">Login</button>
+ <button onclick="adminLogout()">Logout</button>
+ <p id="adminStatus"></p>
+</div>
+
 <div class="comment-box">
- <input placeholder="Your Name">
- <textarea placeholder="Your Comment"></textarea>
- <button>Post Comment</button>
+ <input id="name" placeholder="Your Name">
+ <textarea id="message" placeholder="Your Comment"></textarea>
+ <button onclick="saveComment()">Post Comment</button>
+ <div id="commentList"></div>
 </div>
 </section>
+
 
 <h2>My Gallery</h2>
 <div class="gallery">
@@ -281,6 +291,120 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
 </section>
 
 <footer>© 2026 Ankan Clicks</footer>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+/* ==== FIREBASE CONFIG ==== */
+const firebaseConfig={
+ apiKey:"AIzaSyDFBtQJXSrupeS0XZx8KINJM1Zpsp8M8xQ",
+ authDomain:"ankanclicks-comment.firebaseapp.com",
+ projectId:"ankanclicks-comment"
+};
+firebase.initializeApp(firebaseConfig);
+const db=firebase.firestore();
+
+/* ==== ELEMENTS ==== */
+const nameInput=document.getElementById("name");
+const messageInput=document.getElementById("message");
+const commentList=document.getElementById("commentList");
+const adminStatus=document.getElementById("adminStatus");
+const adminPin=document.getElementById("adminPin");
+
+/* ==== ADMIN ==== */
+const ADMIN_PIN="ANKAN123";
+let isAdmin=localStorage.getItem("admin")==="true";
+if(isAdmin) adminStatus.innerText="Admin logged in";
+
+function adminLogin(){
+ if(adminPin.value===ADMIN_PIN){
+  isAdmin=true;
+  localStorage.setItem("admin","true");
+  adminStatus.innerText="Admin logged in";
+  loadComments();
+ }else alert("Wrong PIN");
+}
+function adminLogout(){
+ isAdmin=false;
+ localStorage.removeItem("admin");
+ adminStatus.innerText="Logged out";
+ loadComments();
+}
+
+/* ==== COMMENTS ==== */
+function saveComment(){
+ if(!nameInput.value.trim()||!messageInput.value.trim()){
+  alert("Fill all fields");return;
+ }
+ db.collection("comments").add({
+  name:nameInput.value.trim(),
+  message:messageInput.value.trim(),
+  time:firebase.firestore.FieldValue.serverTimestamp()
+ }).then(()=>{
+  nameInput.value="";
+  messageInput.value="";
+  loadComments();
+ });
+}
+
+function deleteComment(id){
+ if(!isAdmin)return;
+ db.collection("comments").doc(id).delete().then(loadComments);
+}
+
+function addReply(id){
+ const t=document.getElementById("r"+id).value.trim();
+ if(!t)return;
+ db.collection("comments").doc(id)
+ .collection("replies")
+ .add({text:t,time:firebase.firestore.FieldValue.serverTimestamp()})
+ .then(loadComments);
+}
+
+/* ==== TIME AGO ==== */
+function timeAgo(ts){
+ if(!ts) return "";
+ const sec=(Date.now()-ts.toDate())/1000;
+ if(sec<60) return "just now";
+ if(sec<3600) return Math.floor(sec/60)+" min ago";
+ if(sec<86400) return Math.floor(sec/3600)+" hours ago";
+ return Math.floor(sec/86400)+" days ago";
+}
+
+/* ==== LOAD COMMENTS ==== */
+function loadComments(){
+ commentList.innerHTML="";
+ db.collection("comments").orderBy("time","desc").get().then(s=>{
+  s.forEach(d=>{
+   const c=d.data();
+   const div=document.createElement("div");
+   div.className="comment";
+   div.innerHTML=`
+    <strong>${c.name}</strong>
+    <small style="color:#777"> • ${timeAgo(c.time)}</small>
+    <p>${c.message}</p>
+    ${isAdmin?`<span class="delete" onclick="deleteComment('${d.id}')">Delete</span>`:""}
+   `;
+   if(isAdmin){
+    div.innerHTML+=`
+     <textarea id="r${d.id}" placeholder="Reply..."></textarea>
+     <button onclick="addReply('${d.id}')">Reply</button>
+    `;
+   }
+   d.ref.collection("replies").orderBy("time").get().then(r=>{
+    r.forEach(x=>{
+     const rp=document.createElement("div");
+     rp.className="reply";
+     rp.innerText=x.data().text;
+     div.appendChild(rp);
+    });
+   });
+   commentList.appendChild(div);
+  });
+ });
+}
+loadComments();
+</script>
+
 
 <div id="lightbox"><img></div>
 
@@ -305,3 +429,4 @@ lb.onclick=()=>lb.style.display="none";
 
 </body>
 </html>
+
