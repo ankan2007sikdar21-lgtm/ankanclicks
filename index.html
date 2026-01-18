@@ -253,6 +253,7 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
   <img src="photo19.jpeg">
   <img src="photo20.jpeg">
 </div>
+
 <!-- Audio Player -->
 <div class="audio-wrapper">
   <audio id="bgMusic" loop>
@@ -484,9 +485,10 @@ window.addEventListener("scroll",()=>{
 <script>
 // ===== HIGHLIGHT SLIDER AUDIO =====
 const bgMusic = document.getElementById("bgMusic");
-
-// scroll-triggered play/pause
 const highlightSlider = document.getElementById("highlightSlider");
+
+// initially muted for browser autoplay policy
+bgMusic.muted = true;
 
 window.addEventListener("scroll", () => {
   const rect = highlightSlider.getBoundingClientRect();
@@ -498,9 +500,15 @@ window.addEventListener("scroll", () => {
     bgMusic.pause();
   }
 });
+
+// Optional: unmute on first user click if needed
+window.addEventListener("click", () => {
+  bgMusic.muted = false;
+});
 </script>
 </body>
 </html>
+
 
 
 
