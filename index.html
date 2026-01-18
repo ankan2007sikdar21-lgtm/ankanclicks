@@ -114,7 +114,12 @@ h2{text-align:center;margin-bottom:30px}
  transform:scale(1.06);
  box-shadow:0 15px 35px rgba(0,0,0,.7);
 }
-
+/* Media query for mobile */
+@media (max-width:768px){
+  .highlight-slider img{
+    height:200px;
+  }
+}
 /* ===== COMMENTS ===== */
 .comment-box{
  max-width:780px;
@@ -250,7 +255,6 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
 </div>
 <!-- Audio Player -->
 <div class="audio-wrapper">
-  <button id="audioBtn">🔇</button> <!-- Mute/Unmute button -->
   <audio id="bgMusic" loop>
     <source src="song.mp3" type="audio/mp3">
     Your browser does not support the audio element.
@@ -261,6 +265,7 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
   <img src="photo19.jpeg">
   <img src="photo20.jpeg">
 </div>
+
 <!-- COMMENTS (New Uploaded er niche) -->
 <div id="comments">
 <h2>Comments</h2>
@@ -479,19 +484,8 @@ window.addEventListener("scroll",()=>{
 <script>
 // ===== HIGHLIGHT SLIDER AUDIO =====
 const bgMusic = document.getElementById("bgMusic");
-const audioBtn = document.getElementById("audioBtn");
-let isMuted = true; // initially muted
 
-bgMusic.muted = true; // initial mute
-
-// Mute/Unmute toggle
-audioBtn.addEventListener("click", () => {
-  isMuted = !isMuted;
-  bgMusic.muted = isMuted;
-  audioBtn.textContent = isMuted ? "🔇" : "🔊";
-});
-
-// Scroll-triggered play/pause
+// scroll-triggered play/pause
 const highlightSlider = document.getElementById("highlightSlider");
 
 window.addEventListener("scroll", () => {
@@ -499,7 +493,7 @@ window.addEventListener("scroll", () => {
   const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
   if(isVisible && bgMusic.paused){
-    bgMusic.play().catch(err => console.log("Autoplay blocked, use mute/unmute"));
+    bgMusic.play().catch(err => console.log("Autoplay blocked"));
   } else if(!isVisible && !bgMusic.paused){
     bgMusic.pause();
   }
@@ -507,5 +501,6 @@ window.addEventListener("scroll", () => {
 </script>
 </body>
 </html>
+
 
 
