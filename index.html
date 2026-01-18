@@ -173,6 +173,25 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
     height:200px;  /* Mobile / tablet height */
   }
 }
+/* Audio button overlay on slider */
+.audio-wrapper{
+  position: relative;
+  display: inline-block;
+}
+
+#audioBtn{
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #f5b041;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
 </style>
 </head>
 
@@ -229,7 +248,19 @@ footer{background:#000;padding:25px;text-align:center;color:#777}
   <img src="photo19.jpeg">
   <img src="photo20.jpeg">
 </div>
+<!-- Audio Player -->
+<div class="audio-wrapper">
+  <button id="audioBtn">🔇</button> <!-- Mute/Unmute button -->
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
 
+<div class="highlight-slider" id="highlightSlider">
+  <img src="photo19.jpeg">
+  <img src="photo20.jpeg">
+</div>
 <!-- COMMENTS (New Uploaded er niche) -->
 <div id="comments">
 <h2>Comments</h2>
@@ -445,7 +476,36 @@ window.addEventListener("scroll",()=>{
  }
 });
 </script>
+<script>
+// ===== HIGHLIGHT SLIDER AUDIO =====
+const bgMusic = document.getElementById("bgMusic");
+const audioBtn = document.getElementById("audioBtn");
+let isMuted = true; // initially muted
 
+bgMusic.muted = true; // initial mute
+
+// Mute/Unmute toggle
+audioBtn.addEventListener("click", () => {
+  isMuted = !isMuted;
+  bgMusic.muted = isMuted;
+  audioBtn.textContent = isMuted ? "🔇" : "🔊";
+});
+
+// Scroll-triggered play/pause
+const highlightSlider = document.getElementById("highlightSlider");
+
+window.addEventListener("scroll", () => {
+  const rect = highlightSlider.getBoundingClientRect();
+  const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+  if(isVisible && bgMusic.paused){
+    bgMusic.play().catch(err => console.log("Autoplay blocked, use mute/unmute"));
+  } else if(!isVisible && !bgMusic.paused){
+    bgMusic.pause();
+  }
+});
+</script>
 </body>
 </html>
+
 
