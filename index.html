@@ -68,14 +68,19 @@ nav a:hover{color:#f5b041}
 /* SECTIONS */
 section{
  padding:70px 10%;
+}
+
+/* animation only for sections you want */
+.reveal{
  opacity:0;
  transform:translateY(40px);
  transition:1s;
 }
-section.show{
+.reveal.show{
  opacity:1;
  transform:none;
 }
+
 h2{text-align:center;margin-bottom:30px}
 
 /* ABOUT */
@@ -440,6 +445,7 @@ lb.onclick=()=>lb.style.display="none";
 
 </body>
 </html>
+
 
 
 
