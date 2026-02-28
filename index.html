@@ -81,10 +81,10 @@
 
         nav a {
             color: #fff;
-            margin: 0 20px;
+            margin: 0 15px;
             text-decoration: none;
             font-weight: 400;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
@@ -93,12 +93,12 @@
         nav a:hover { color: var(--primary); }
 
         /* SECTIONS */
-        section { padding: 100px 10%; }
+        section { padding: 80px 10%; }
         h2 { 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.5rem; 
+            font-size: 2.2rem; 
             text-align: center; 
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             color: var(--primary);
         }
 
@@ -106,19 +106,18 @@
         .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
             align-items: center;
         }
 
         .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
+            margin-bottom: 18px;
+            font-size: 1rem;
             color: var(--text-dim);
             text-align: justify;
         }
 
         .about-image {
-            position: relative;
             width: 100%;
             border-radius: 20px;
             overflow: hidden;
@@ -127,38 +126,41 @@
 
         .about-image img { width: 100%; display: block; }
 
-        /* HIGHLIGHT SLIDER */
+        /* HIGHLIGHT SLIDER (FIXED FOR MOBILE) */
         .highlight-wrapper {
             background: var(--card-bg);
-            padding: 40px;
-            border-radius: 30px;
+            padding: 30px 15px;
+            border-radius: 25px;
             margin-bottom: 60px;
+            width: 100%;
         }
 
         .highlight-slider {
             display: flex;
             overflow-x: auto;
-            gap: 20px;
-            padding-bottom: 20px;
-            scrollbar-width: none;
+            gap: 15px;
+            padding-bottom: 15px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
 
+        /* Hide scrollbar */
         .highlight-slider::-webkit-scrollbar { display: none; }
 
         .highlight-slider img {
-            height: 350px;
+            height: 380px; /* Default desktop height */
             border-radius: 15px;
             object-fit: cover;
             transition: 0.5s;
             cursor: pointer;
+            flex-shrink: 0;
+            scroll-snap-align: start;
         }
-
-        .highlight-slider img:hover { transform: scale(1.03); }
 
         /* GALLERY GRID */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 20px;
         }
 
@@ -173,117 +175,95 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: 0.6s;
         }
 
-        .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.7); }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.8); }
 
-        /* COMMENT SYSTEM UI */
+        /* COMMENT SYSTEM */
         .comment-section {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.05);
+            padding: 35px;
+            border-radius: 25px;
         }
 
-        .admin-controls {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .admin-controls input {
-            background: #000;
-            border: 1px solid var(--primary);
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
-
-        .btn-small {
-            background: var(--primary);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-left: 5px;
-        }
-
+        .admin-controls { margin-bottom: 25px; }
+        .admin-controls input { background: #000; border: 1px solid var(--primary); color: #fff; padding: 8px; border-radius: 5px; }
+        
         .input-group input, .input-group textarea {
             width: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
             color: #fff;
             padding: 15px;
             border-radius: 12px;
-            margin-bottom: 15px;
-            font-family: inherit;
+            margin-bottom: 12px;
         }
 
         .btn-post {
             background: var(--primary);
             color: #000;
             border: none;
-            padding: 12px 40px;
-            border-radius: 30px;
+            padding: 12px 35px;
+            border-radius: 25px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        .btn-post:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(245, 176, 65, 0.3); }
-
         .comment-card {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             padding: 20px;
             border-radius: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
             border-left: 4px solid var(--primary);
         }
 
         .reply-box {
-            margin-left: 30px;
+            margin-left: 20px;
             background: rgba(255,255,255,0.03);
-            padding: 10px 15px;
+            padding: 10px;
             border-radius: 10px;
-            margin-top: 10px;
-            font-size: 0.9rem;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
         }
 
-        /* FOOTER & AUDIO */
+        /* FLOATING MUSIC BUTTON */
         #audioToggle {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 25px;
             background: var(--primary);
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 2000;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
 
-        footer {
-            padding: 50px;
-            text-align: center;
-            color: #555;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        footer { padding: 40px; text-align: center; color: #666; font-size: 0.8rem; }
 
-        /* RESPONSIVE */
+        /* MOBILE FIXES */
         @media (max-width: 768px) {
+            section { padding: 60px 20px; }
             .about-container { grid-template-columns: 1fr; }
-            section { padding: 60px 5%; }
-            .logo { width: 300px; }
+            .logo { width: 280px; }
             h2 { font-size: 1.8rem; }
+            
+            /* The Fix for Discovery section on Mobile */
+            .highlight-slider img {
+                height: 250px; /* Reduced height for small screens */
+                max-width: 80vw; /* Shows part of the next image to hint scrolling */
+            }
+            .highlight-wrapper { padding: 20px 10px; }
+            
+            nav a { margin: 0 8px; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -296,16 +276,16 @@
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="ankanclicks.png" class="logo" alt="Ankan Clicks">
+            <img src="ankanclicks.png" class="logo">
             <p id="typeText"></p>
         </div>
     </header>
 
     <nav>
         <a href="#about">About</a>
+        <a href="#new-uploads">New</a>
         <a href="#gallery">Gallery</a>
         <a href="#comments">Guestbook</a>
-        <a href="#contact">Contact</a>
     </nav>
 
     <section id="about">
@@ -313,8 +293,8 @@
             <div class="about-text">
                 <h2>About My Vision</h2>
                 <p>আমি অঙ্কন, একজন শখের ফটোগ্রাফার। আমার কাছে ফটোগ্রাফি মানে শুধু ছবি তোলা নয়, বরং মুহূর্ত, অনুভূতি আর গল্পকে ধরে রাখা।</p>
-                <p>Through my lens, I frame not only what the eyes can see, but also what the heart can feel. Whether it’s the quiet beauty of nature or the raw expressions of people, I love freezing moments that speak without words.</p>
-                <p style="color: var(--primary); font-style: italic;">"Through my lens, moments become memories."</p>
+                <p>Through my lens, I frame not only what the eyes can see, but also what the heart can feel. I love freezing moments that speak without words.</p>
+                <p style="color: var(--primary); font-style: italic; text-align: center;">"Through my lens, moments become memories."</p>
             </div>
             <div class="about-image">
                 <img src="bio_photo.jpeg" alt="Ankan">
@@ -393,34 +373,26 @@
     <section id="comments">
         <div class="comment-section">
             <h2>Guestbook</h2>
-            
             <div class="admin-controls">
                 <input type="password" id="adminPin" placeholder="Admin PIN">
-                <button class="btn-small" onclick="adminLogin()">Login</button>
-                <button class="btn-small" style="background:#555" onclick="adminLogout()">Logout</button>
-                <p id="adminStatus" style="font-size: 0.8rem; margin-top: 5px; color: var(--primary);"></p>
+                <button onclick="adminLogin()" style="padding: 8px; cursor: pointer;">Login</button>
+                <button onclick="adminLogout()" style="padding: 8px; cursor: pointer;">Logout</button>
+                <p id="adminStatus" style="font-size: 0.8rem; color: var(--primary); margin-top: 5px;"></p>
             </div>
-
             <div class="input-group">
                 <input id="name" placeholder="Your Name">
-                <textarea id="message" rows="4" placeholder="Share your thoughts..."></textarea>
-                <button class="btn-post" onclick="saveComment()">Post Perspective</button>
+                <textarea id="message" rows="3" placeholder="Leave a comment..."></textarea>
+                <button class="btn-post" onclick="saveComment()">Post Comment</button>
             </div>
-
             <div id="commentList"></div>
         </div>
     </section>
 
-    <section id="contact" style="text-align: center; background: #000;">
-        <h2>Get In Touch</h2>
-        <p>aperturechronicles085</p>
-        <p>📧 ankan2007sikdar21@gmail.com</p>
-        <p>📞 +91 9564996325</p>
+    <section id="contact" style="text-align: center;">
+        <p>📧 ankan2007sikdar21@gmail.com | 📞 +91 9564996325</p>
     </section>
 
-    <footer>
-        <p>© 2026 Ankan Clicks | Crafted with Passion</p>
-    </footer>
+    <footer>© 2026 Ankan Clicks | Photography Portfolio</footer>
 
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -442,52 +414,43 @@
 
         const ADMIN_PIN="ANKAN123";
         let isAdmin=localStorage.getItem("admin")==="true";
-        if(isAdmin)adminStatus.innerText="Admin Mode Active";
+        if(isAdmin) adminStatus.innerText="Logged in as Admin";
 
         function adminLogin(){
             if(adminPin.value===ADMIN_PIN){
-                isAdmin=true;
-                localStorage.setItem("admin","true");
-                adminStatus.innerText="Admin Mode Active";
-                loadComments();
-            } else alert("Invalid PIN");
+                isAdmin=true; localStorage.setItem("admin","true");
+                adminStatus.innerText="Logged in as Admin"; loadComments();
+            } else alert("Wrong PIN");
         }
 
         function adminLogout(){
-            isAdmin=false;
-            localStorage.removeItem("admin");
-            adminStatus.innerText="Logged out";
-            loadComments();
+            isAdmin=false; localStorage.removeItem("admin");
+            adminStatus.innerText="Logged out"; loadComments();
         }
 
         function saveComment(){
             if(!nameInput.value.trim()||!messageInput.value.trim()){
-                alert("Please fill all fields"); return;
+                alert("Fill all fields"); return;
             }
             db.collection("comments").add({
                 name:nameInput.value.trim(),
                 message:messageInput.value.trim(),
                 time:firebase.firestore.FieldValue.serverTimestamp()
             }).then(()=>{
-                nameInput.value="";
-                messageInput.value="";
-                loadComments();
+                nameInput.value=""; messageInput.value=""; loadComments();
             });
         }
 
         function deleteComment(id){
-            if(!isAdmin)return;
-            if(confirm("Delete this memory?")){
-                db.collection("comments").doc(id).delete().then(loadComments);
-            }
+            if(!isAdmin) return;
+            if(confirm("Delete this?")) db.collection("comments").doc(id).delete().then(loadComments);
         }
 
         function addReply(id){
             const t=document.getElementById("r"+id).value.trim();
-            if(!t)return;
+            if(!t) return;
             db.collection("comments").doc(id).collection("replies").add({
-                text:t,
-                time:firebase.firestore.FieldValue.serverTimestamp()
+                text:t, time:firebase.firestore.FieldValue.serverTimestamp()
             }).then(loadComments);
         }
 
@@ -498,34 +461,17 @@
                     const c=d.data();
                     const div=document.createElement("div");
                     div.className="comment-card";
-
-                    const timeAgo = (ts) => {
-                        if(!ts) return "";
-                        let diff=Math.floor((new Date()-ts.toDate())/1000);
-                        if(diff<60) return "Just now";
-                        if(diff<3600) return Math.floor(diff/60)+"m ago";
-                        if(diff<86400) return Math.floor(diff/3600)+"h ago";
-                        return Math.floor(diff/86400)+"d ago";
-                    }
-
                     div.innerHTML=`
-                        <div style="display:flex; justify-content:space-between; align-items:center">
-                            <strong>${c.name}</strong>
-                            <small style="color:#777">${timeAgo(c.time)}</small>
-                        </div>
-                        <p style="margin:10px 0; color:#ddd">${c.message}</p>
+                        <strong>${c.name}</strong>
+                        <p>${c.message}</p>
                         ${isAdmin? `<span style="color:red; cursor:pointer; font-size:0.8rem" onclick="deleteComment('${d.id}')">Delete</span>` : ""}
                     `;
-
                     if(isAdmin){
-                        div.innerHTML+=`
-                            <div style="margin-top:15px">
-                                <input id="r${d.id}" placeholder="Write a reply..." style="background:#111; border:1px solid #333; color:#fff; padding:5px; border-radius:5px; width:70%">
-                                <button class="btn-small" onclick="addReply('${d.id}')">Reply</button>
-                            </div>
-                        `;
+                        div.innerHTML+=`<div style="margin-top:10px">
+                            <input id="r${d.id}" placeholder="Reply..." style="width:70%; background:#111; color:#fff; border:1px solid #444; padding:5px; border-radius:5px">
+                            <button onclick="addReply('${d.id}')" style="padding:5px">Reply</button>
+                        </div>`;
                     }
-
                     d.ref.collection("replies").orderBy("time").get().then(r=>{
                         r.forEach(x=>{
                             const rp=document.createElement("div");
@@ -540,39 +486,26 @@
         }
         loadComments();
 
-        // Typing effect
+        // Typing Effect
         const text="Photography • Stories • Emotions";
-        let charIndex=0;
+        let i=0;
         function type(){
-            if(charIndex < text.length){
-                document.getElementById("typeText").innerHTML += text.charAt(charIndex);
-                charIndex++;
-                setTimeout(type, 100);
+            if(i<text.length){
+                document.getElementById("typeText").innerHTML+=text.charAt(i);
+                i++; setTimeout(type, 100);
             }
         }
-        window.onload = type;
+        window.onload=type;
 
-        // Music Toggle
+        // Music
         const bgMusic = document.getElementById("bgMusic");
         function toggleMusic(){
             if(bgMusic.paused){
-                bgMusic.play();
-                document.getElementById("audioToggle").innerText = "⏸️";
+                bgMusic.play(); document.getElementById("audioToggle").innerText="⏸️";
             } else {
-                bgMusic.pause();
-                document.getElementById("audioToggle").innerText = "🎵";
+                bgMusic.pause(); document.getElementById("audioToggle").innerText="🎵";
             }
         }
-
-        // Highlight Scroll Visibility Logic (Keep original logic but updated)
-        const highlightSlider = document.getElementById("highlightSlider");
-        window.addEventListener("scroll", () => {
-            const rect = highlightSlider.getBoundingClientRect();
-            if(rect.top < window.innerHeight && rect.bottom > 0 && bgMusic.paused){
-                // Optional auto-play
-            }
-        });
     </script>
 </body>
 </html>
-
