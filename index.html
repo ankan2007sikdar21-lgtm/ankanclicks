@@ -2,23 +2,20 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankan Clicks | Photography Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------- GLOBAL ---------- */
+/* ===== GLOBAL ===== */
 
 :root{
 --gold:#f5b041;
 --bg:#050505;
---card:rgba(255,255,255,.06);
---text:#ffffff;
+--card:rgba(255,255,255,.05);
 --dim:#cfcfcf;
 }
 
@@ -30,30 +27,29 @@ cursor:none;
 }
 
 body{
+font-family:Poppins;
 background:var(--bg);
 color:white;
-font-family:Poppins;
 overflow-x:hidden;
 }
 
-/* ---------- CURSOR ---------- */
+/* ===== CURSOR ===== */
 
 .cursor{
-width:25px;
-height:25px;
+width:26px;
+height:26px;
 border:2px solid var(--gold);
 border-radius:50%;
 position:fixed;
 pointer-events:none;
 transform:translate(-50%,-50%);
 z-index:9999;
-transition:.1s;
+transition:.08s;
 }
 
-/* ---------- LOADER ---------- */
+/* ===== LOADER ===== */
 
 #loader{
-
 position:fixed;
 inset:0;
 background:black;
@@ -62,10 +58,9 @@ align-items:center;
 justify-content:center;
 flex-direction:column;
 z-index:9999;
-
 }
 
-.loaderLogo{
+.loaderText{
 font-family:'Playfair Display';
 font-size:3rem;
 color:var(--gold);
@@ -78,13 +73,13 @@ animation:pulse 2s infinite;
 100%{opacity:.3}
 }
 
-/* ---------- HERO ---------- */
+/* ===== HERO ===== */
 
 .hero{
 height:100vh;
 background-size:cover;
 background-position:center;
-animation:heroSlide 25s infinite;
+animation:heroSlide 24s infinite;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -92,18 +87,16 @@ position:relative;
 }
 
 @keyframes heroSlide{
-
 0%{background-image:url('cover.jpeg')}
 33%{background-image:url('cover2.jpeg')}
 66%{background-image:url('cover3.jpeg')}
 100%{background-image:url('cover.jpeg')}
-
 }
 
 .overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to bottom,rgba(0,0,0,.3),#050505);
+background:linear-gradient(to bottom,rgba(0,0,0,.4),#050505);
 }
 
 .heroContent{
@@ -114,16 +107,16 @@ position:relative;
 .logo{
 width:420px;
 max-width:90%;
-filter:drop-shadow(0 10px 20px rgba(0,0,0,.7));
+filter:drop-shadow(0 10px 20px rgba(0,0,0,.8));
 }
 
 #typeText{
 margin-top:15px;
-color:var(--gold);
 letter-spacing:5px;
+color:var(--gold);
 }
 
-/* ---------- NAV ---------- */
+/* ===== NAV ===== */
 
 nav{
 position:sticky;
@@ -137,8 +130,8 @@ z-index:1000;
 
 nav a{
 color:white;
+margin:0 14px;
 text-decoration:none;
-margin:0 15px;
 font-size:.85rem;
 letter-spacing:1px;
 text-transform:uppercase;
@@ -148,21 +141,21 @@ nav a:hover{
 color:var(--gold);
 }
 
-/* ---------- SECTION ---------- */
+/* ===== SECTIONS ===== */
 
 section{
 padding:90px 8%;
 }
 
 h2{
-text-align:center;
 font-family:'Playfair Display';
-color:var(--gold);
 font-size:2.4rem;
+text-align:center;
+color:var(--gold);
 margin-bottom:40px;
 }
 
-/* ---------- ABOUT ---------- */
+/* ===== ABOUT ===== */
 
 .about{
 display:grid;
@@ -183,7 +176,7 @@ border-radius:20px;
 box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
-/* ---------- HIGHLIGHT SLIDER ---------- */
+/* ===== HIGHLIGHTS ===== */
 
 .highlightSlider{
 display:flex;
@@ -206,23 +199,7 @@ cursor:pointer;
 transform:scale(1.05);
 }
 
-/* ---------- CATEGORY FILTER ---------- */
-
-.filters{
-text-align:center;
-margin-bottom:30px;
-}
-
-.filters button{
-background:transparent;
-border:1px solid var(--gold);
-color:white;
-padding:8px 18px;
-margin:5px;
-cursor:pointer;
-}
-
-/* ---------- GALLERY ---------- */
+/* ===== GALLERY ===== */
 
 .gallery{
 display:grid;
@@ -248,7 +225,7 @@ transform:scale(1.1);
 filter:brightness(.8);
 }
 
-/* ---------- LIGHTBOX ---------- */
+/* ===== LIGHTBOX ===== */
 
 #lightbox{
 position:fixed;
@@ -265,7 +242,33 @@ max-width:90%;
 max-height:90%;
 }
 
-/* ---------- COMMENTS ---------- */
+.lbArrow{
+position:absolute;
+top:50%;
+font-size:2rem;
+color:white;
+cursor:pointer;
+padding:10px;
+}
+
+.lbPrev{left:20px}
+.lbNext{right:20px}
+
+/* ===== INSTAGRAM ===== */
+
+.insta{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:10px;
+}
+
+.insta img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+/* ===== COMMENTS ===== */
 
 .commentBox{
 max-width:850px;
@@ -311,48 +314,36 @@ margin-top:8px;
 font-size:.85rem;
 }
 
-/* ---------- INSTAGRAM ---------- */
-
-.insta{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-gap:10px;
-}
-
-.insta img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-/* ---------- CONTACT ---------- */
+/* ===== CONTACT ===== */
 
 .contact{
 text-align:center;
 background:black;
 }
 
-/* ---------- MOBILE ---------- */
+footer{
+text-align:center;
+padding:40px;
+color:#777;
+font-size:.8rem;
+}
+
+/* ===== MOBILE ===== */
 
 @media(max-width:768px){
 
-.about{
-grid-template-columns:1fr;
-}
+.about{grid-template-columns:1fr}
 
 .highlightSlider img{
 height:260px;
 max-width:80vw;
 }
 
-section{
-padding:70px 20px;
-}
+section{padding:70px 20px}
 
 }
 
 </style>
-
 </head>
 
 <body>
@@ -360,51 +351,43 @@ padding:70px 20px;
 <div class="cursor" id="cursor"></div>
 
 <div id="loader">
-<div class="loaderLogo">ANKAN CLICKS</div>
+<div class="loaderText">ANKAN CLICKS</div>
 </div>
 
-<div id="lightbox" onclick="closeLightbox()">
+<div id="lightbox">
+<span class="lbArrow lbPrev" onclick="prevImg()">❮</span>
 <img id="lightImg">
+<span class="lbArrow lbNext" onclick="nextImg()">❯</span>
 </div>
 
 <header class="hero">
-
 <div class="overlay"></div>
-
 <div class="heroContent">
-
 <img src="ankanclicks.png" class="logo">
-
 <p id="typeText"></p>
-
 </div>
-
 </header>
 
 <nav>
-
 <a href="#about">About</a>
 <a href="#new">Discoveries</a>
 <a href="#gallery">Gallery</a>
 <a href="#instagram">Instagram</a>
 <a href="#comments">Guestbook</a>
-
 </nav>
 
 <section id="about">
-
 <div class="about">
 
 <div>
-
 <h2>About My Vision</h2>
 
 <p>
-আমি অঙ্কন, একজন শখের ফটোগ্রাফার। আমার কাছে ফটোগ্রাফি শুধু একটি ছবি তোলার কাজ নয়, বরং আলো, অনুভূতি আর মুহূর্তকে ধরে রাখার একটি শিল্প। প্রতিটি ফ্রেমের ভেতরে আমি সেই গল্পটা খুঁজে পাই যা এক সেকেন্ড পরে আর দেখা যাবে না।
+আমি অঙ্কন, একজন শখের ফটোগ্রাফার। আমার কাছে ফটোগ্রাফি মানে শুধু ছবি তোলা নয়—বরং মুহূর্ত, আলো আর অনুভূতিকে ধরে রাখার এক অসাধারণ শিল্প। প্রতিটি ফ্রেমের মধ্যে আমি সেই গল্পটা খুঁজে পাই যা হয়তো কয়েক সেকেন্ড পরেই হারিয়ে যাবে।
 </p>
 
 <p>
-Through my lens, I capture not only what the eyes see but also what the heart feels. Photography for me is about freezing emotions, light, and fleeting moments so they can live forever in a single frame.
+Through my lens, I try to capture not only what the eyes see but also what the heart feels. Photography for me is about freezing emotions, light, and fleeting moments so that they can live forever in a single frame.
 </p>
 
 <p style="color:#f5b041;text-align:center;font-style:italic">
@@ -416,33 +399,30 @@ Through my lens, I capture not only what the eyes see but also what the heart fe
 <img src="bio_photo.jpeg">
 
 </div>
-
 </section>
 
 <section id="new">
-
 <h2>New Discoveries</h2>
 
 <div class="highlightSlider">
 
-<img src="photo37.jpeg" onclick="openLightbox(this.src)">
-<img src="photo38.jpeg" onclick="openLightbox(this.src)">
-<img src="photo39.jpeg" onclick="openLightbox(this.src)">
-<img src="photo40.jpg" onclick="openLightbox(this.src)">
-<img src="photo41.jpg" onclick="openLightbox(this.src)">
-<img src="photo42.jpeg" onclick="openLightbox(this.src)">
-<img src="photo43.jpg" onclick="openLightbox(this.src)">
-<img src="photo44.jpg" onclick="openLightbox(this.src)">
-<img src="photo45.jpg" onclick="openLightbox(this.src)">
-<img src="photo46.jpg" onclick="openLightbox(this.src)">
-<img src="photo47.jpg" onclick="openLightbox(this.src)">
+<img src="photo37.jpeg">
+<img src="photo38.jpeg">
+<img src="photo39.jpeg">
+<img src="photo40.jpg">
+<img src="photo41.jpg">
+<img src="photo42.jpeg">
+<img src="photo43.jpg">
+<img src="photo44.jpg">
+<img src="photo45.jpg">
+<img src="photo46.jpg">
+<img src="photo47.jpg">
 
 </div>
 
 </section>
 
 <section id="gallery">
-
 <h2>My Masterpieces</h2>
 
 <div class="gallery">
@@ -456,8 +436,51 @@ Through my lens, I capture not only what the eyes see but also what the heart fe
 <a onclick="openLightbox('photo7.jpeg')"><div><img src="photo7.jpeg"></div></a>
 <a onclick="openLightbox('photo8.jpeg')"><div><img src="photo8.jpeg"></div></a>
 
-</div>
+<a onclick="openLightbox('photo9.jpeg')"><div><img src="photo9.jpeg"></div></a>
+<a onclick="openLightbox('photo10.jpeg')"><div><img src="photo10.jpeg"></div></a>
+<a onclick="openLightbox('photo11.jpeg')"><div><img src="photo11.jpeg"></div></a>
+<a onclick="openLightbox('photo12.jpeg')"><div><img src="photo12.jpeg"></div></a>
+<a onclick="openLightbox('photo13.jpeg')"><div><img src="photo13.jpeg"></div></a>
+<a onclick="openLightbox('photo14.jpeg')"><div><img src="photo14.jpeg"></div></a>
+<a onclick="openLightbox('photo15.jpeg')"><div><img src="photo15.jpeg"></div></a>
+<a onclick="openLightbox('photo16.jpeg')"><div><img src="photo16.jpeg"></div></a>
 
+<a onclick="openLightbox('photo17.jpeg')"><div><img src="photo17.jpeg"></div></a>
+<a onclick="openLightbox('photo18.jpeg')"><div><img src="photo18.jpeg"></div></a>
+<a onclick="openLightbox('photo19.jpeg')"><div><img src="photo19.jpeg"></div></a>
+<a onclick="openLightbox('photo20.jpeg')"><div><img src="photo20.jpeg"></div></a>
+<a onclick="openLightbox('photo21.jpeg')"><div><img src="photo21.jpeg"></div></a>
+<a onclick="openLightbox('photo22.jpeg')"><div><img src="photo22.jpeg"></div></a>
+<a onclick="openLightbox('photo23.jpeg')"><div><img src="photo23.jpeg"></div></a>
+<a onclick="openLightbox('photo24.jpeg')"><div><img src="photo24.jpeg"></div></a>
+
+<a onclick="openLightbox('photo25.jpeg')"><div><img src="photo25.jpeg"></div></a>
+<a onclick="openLightbox('photo26.jpeg')"><div><img src="photo26.jpeg"></div></a>
+<a onclick="openLightbox('photo27.jpeg')"><div><img src="photo27.jpeg"></div></a>
+<a onclick="openLightbox('photo28.jpeg')"><div><img src="photo28.jpeg"></div></a>
+<a onclick="openLightbox('photo29.jpeg')"><div><img src="photo29.jpeg"></div></a>
+<a onclick="openLightbox('photo30.jpeg')"><div><img src="photo30.jpeg"></div></a>
+<a onclick="openLightbox('photo31.jpeg')"><div><img src="photo31.jpeg"></div></a>
+<a onclick="openLightbox('photo32.jpeg')"><div><img src="photo32.jpeg"></div></a>
+
+<a onclick="openLightbox('photo33.jpeg')"><div><img src="photo33.jpeg"></div></a>
+<a onclick="openLightbox('photo34.jpeg')"><div><img src="photo34.jpeg"></div></a>
+<a onclick="openLightbox('photo35.jpeg')"><div><img src="photo35.jpeg"></div></a>
+<a onclick="openLightbox('photo36.jpeg')"><div><img src="photo36.jpeg"></div></a>
+<a onclick="openLightbox('photo37.jpeg')"><div><img src="photo37.jpeg"></div></a>
+<a onclick="openLightbox('photo38.jpeg')"><div><img src="photo38.jpeg"></div></a>
+<a onclick="openLightbox('photo39.jpeg')"><div><img src="photo39.jpeg"></div></a>
+
+<a onclick="openLightbox('photo40.jpg')"><div><img src="photo40.jpg"></div></a>
+<a onclick="openLightbox('photo41.jpg')"><div><img src="photo41.jpg"></div></a>
+<a onclick="openLightbox('photo42.jpeg')"><div><img src="photo42.jpeg"></div></a>
+<a onclick="openLightbox('photo43.jpg')"><div><img src="photo43.jpg"></div></a>
+<a onclick="openLightbox('photo44.jpg')"><div><img src="photo44.jpg"></div></a>
+<a onclick="openLightbox('photo45.jpg')"><div><img src="photo45.jpg"></div></a>
+<a onclick="openLightbox('photo46.jpg')"><div><img src="photo46.jpg"></div></a>
+<a onclick="openLightbox('photo47.jpg')"><div><img src="photo47.jpg"></div></a>
+
+</div>
 </section>
 
 <section id="instagram">
@@ -476,10 +499,7 @@ Through my lens, I capture not only what the eyes see but also what the heart fe
 </div>
 
 <p style="text-align:center;margin-top:20px">
-
-Follow on Instagram  
-<b>aperturechronicles085</b>
-
+Follow on Instagram <b>aperturechronicles085</b>
 </p>
 
 </section>
@@ -523,9 +543,7 @@ Follow on Instagram
 </section>
 
 <footer>
-
 © 2026 Ankan Clicks | Photography Portfolio
-
 </footer>
 
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -533,27 +551,23 @@ Follow on Instagram
 
 <script>
 
-/* cursor */
+/* ===== CURSOR ===== */
 
 const cursor=document.getElementById("cursor");
-
 document.addEventListener("mousemove",e=>{
 cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 });
 
-/* loader */
+/* ===== LOADER ===== */
 
 window.onload=()=>{
-setTimeout(()=>{
-document.getElementById("loader").style.display="none"
-},2000)
+setTimeout(()=>{loader.style.display="none"},2000)
 }
 
-/* typing */
+/* ===== TYPE TEXT ===== */
 
 const text="Photography • Stories • Emotions";
-
 let i=0;
 
 function type(){
@@ -565,18 +579,30 @@ setTimeout(type,90);
 }
 type();
 
-/* lightbox */
+/* ===== LIGHTBOX ===== */
+
+let current=0;
+let images=[
+'photo1.jpeg','photo2.jpeg','photo3.jpeg','photo4.jpeg','photo5.jpeg','photo6.jpeg','photo7.jpeg','photo8.jpeg'
+];
 
 function openLightbox(src){
 document.getElementById("lightbox").style.display="flex";
 document.getElementById("lightImg").src=src;
+current=images.indexOf(src);
 }
 
-function closeLightbox(){
-document.getElementById("lightbox").style.display="none";
+function prevImg(){
+current=(current-1+images.length)%images.length;
+lightImg.src=images[current];
 }
 
-/* firebase comment system */
+function nextImg(){
+current=(current+1)%images.length;
+lightImg.src=images[current];
+}
+
+/* ===== FIREBASE COMMENT ===== */
 
 const firebaseConfig={
 apiKey:"AIzaSyDFBtQJXSrupeS0XZx8KINJM1Zpsp8M8xQ",
@@ -585,7 +611,6 @@ projectId:"ankanclicks-comment"
 };
 
 firebase.initializeApp(firebaseConfig);
-
 const db=firebase.firestore();
 
 const nameInput=document.getElementById("name");
@@ -602,25 +627,19 @@ let isAdmin=localStorage.getItem("admin")==="true";
 if(isAdmin) adminStatus.innerText="Logged in as Admin";
 
 function adminLogin(){
-
 if(adminPin.value===ADMIN_PIN){
-
 isAdmin=true;
 localStorage.setItem("admin","true");
 adminStatus.innerText="Logged in as Admin";
 loadComments();
-
 }else alert("Wrong PIN");
-
 }
 
 function adminLogout(){
-
 isAdmin=false;
 localStorage.removeItem("admin");
 adminStatus.innerText="Logged out";
 loadComments();
-
 }
 
 function saveComment(){
@@ -642,12 +661,10 @@ loadComments();
 }
 
 function deleteComment(id){
-
 if(!isAdmin)return;
 
 if(confirm("Delete comment?"))
 db.collection("comments").doc(id).delete().then(loadComments);
-
 }
 
 function addReply(id){
@@ -660,6 +677,16 @@ db.collection("comments").doc(id).collection("replies").add({
 text:text,
 time:firebase.firestore.FieldValue.serverTimestamp()
 }).then(loadComments);
+
+}
+
+function formatTime(t){
+
+if(!t)return "";
+
+const d=t.toDate();
+
+return d.toLocaleString();
 
 }
 
@@ -679,7 +706,8 @@ div.className="comment";
 div.innerHTML=`
 <strong>${c.name}</strong>
 <p>${c.message}</p>
-${isAdmin?`<span style="color:red;cursor:pointer;font-size:12px" onclick="deleteComment('${d.id}')">Delete</span>`:""}
+<small style="color:#888">${formatTime(c.time)}</small>
+${isAdmin?`<span style="color:red;cursor:pointer;font-size:12px" onclick="deleteComment('${d.id}')"> Delete</span>`:""}
 `;
 
 if(isAdmin){
