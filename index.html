@@ -1,10 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Ankan Clicks | Photography Portfolio</title>
 
@@ -12,10 +12,12 @@
 
 <style>
 
+/* ---------- GLOBAL ---------- */
+
 :root{
 --gold:#f5b041;
---dark:#050505;
---card:rgba(255,255,255,0.05);
+--bg:#050505;
+--card:rgba(255,255,255,.06);
 --text:#ffffff;
 --dim:#cfcfcf;
 }
@@ -24,420 +26,327 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+cursor:none;
 }
 
 body{
-
-background:var(--dark);
-color:var(--text);
+background:var(--bg);
+color:white;
 font-family:Poppins;
 overflow-x:hidden;
 }
 
-img{
-max-width:100%;
-display:block;
+/* ---------- CURSOR ---------- */
+
+.cursor{
+width:25px;
+height:25px;
+border:2px solid var(--gold);
+border-radius:50%;
+position:fixed;
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:9999;
+transition:.1s;
 }
 
-/* HERO */
+/* ---------- LOADER ---------- */
 
-.hero{
+#loader{
 
-height:100vh;
-position:relative;
-
-background-size:cover;
-background-position:center;
-
-animation:heroSlide 24s infinite;
+position:fixed;
+inset:0;
+background:black;
 display:flex;
 align-items:center;
 justify-content:center;
+flex-direction:column;
+z-index:9999;
 
+}
+
+.loaderLogo{
+font-family:'Playfair Display';
+font-size:3rem;
+color:var(--gold);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:.3}
+50%{opacity:1}
+100%{opacity:.3}
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+height:100vh;
+background-size:cover;
+background-position:center;
+animation:heroSlide 25s infinite;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
 }
 
 @keyframes heroSlide{
 
-0%{background-image:url('cover.jpeg');}
-33%{background-image:url('cover2.jpeg');}
-66%{background-image:url('cover3.jpeg');}
-100%{background-image:url('cover.jpeg');}
+0%{background-image:url('cover.jpeg')}
+33%{background-image:url('cover2.jpeg')}
+66%{background-image:url('cover3.jpeg')}
+100%{background-image:url('cover.jpeg')}
 
 }
 
 .overlay{
-
 position:absolute;
 inset:0;
-
-background:linear-gradient(to bottom,rgba(0,0,0,0.4),#050505);
-
+background:linear-gradient(to bottom,rgba(0,0,0,.3),#050505);
 }
 
 .heroContent{
-
-position:relative;
 text-align:center;
-
+position:relative;
 }
 
 .logo{
-
 width:420px;
 max-width:90%;
-
-filter:drop-shadow(0 10px 25px rgba(0,0,0,0.7));
-
+filter:drop-shadow(0 10px 20px rgba(0,0,0,.7));
 }
 
 #typeText{
-
 margin-top:15px;
-
 color:var(--gold);
-
 letter-spacing:5px;
-
-font-size:1.2rem;
-
 }
 
-/* NAV */
+/* ---------- NAV ---------- */
 
 nav{
-
 position:sticky;
 top:0;
-
-background:rgba(0,0,0,0.85);
-
+background:rgba(0,0,0,.9);
 backdrop-filter:blur(10px);
-
 padding:18px;
 text-align:center;
-
-border-bottom:1px solid rgba(255,255,255,0.08);
-
 z-index:1000;
-
 }
 
 nav a{
-
 color:white;
-
 text-decoration:none;
-
 margin:0 15px;
-
 font-size:.85rem;
-
 letter-spacing:1px;
-
 text-transform:uppercase;
-
 }
 
 nav a:hover{
-
 color:var(--gold);
-
 }
 
-/* SECTION */
+/* ---------- SECTION ---------- */
 
 section{
-
 padding:90px 8%;
-
 }
 
 h2{
-
-font-family:'Playfair Display';
-
 text-align:center;
-
-font-size:2.4rem;
-
-margin-bottom:45px;
-
+font-family:'Playfair Display';
 color:var(--gold);
-
+font-size:2.4rem;
+margin-bottom:40px;
 }
 
-/* ABOUT */
+/* ---------- ABOUT ---------- */
 
 .about{
-
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
-gap:45px;
-
+gap:40px;
 align-items:center;
-
 }
 
 .about p{
-
 color:var(--dim);
-
 margin-bottom:18px;
-
 line-height:1.7;
-
 text-align:justify;
-
 }
 
 .about img{
-
 border-radius:20px;
-
-box-shadow:0 20px 40px rgba(0,0,0,0.6);
-
+box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
-/* HIGHLIGHTS */
-
-.highlightWrap{
-
-background:var(--card);
-
-padding:30px;
-
-border-radius:25px;
-
-}
+/* ---------- HIGHLIGHT SLIDER ---------- */
 
 .highlightSlider{
-
 display:flex;
-
 overflow-x:auto;
-
 gap:18px;
-
 scroll-snap-type:x mandatory;
-
 }
 
-.highlightSlider::-webkit-scrollbar{
-
-display:none;
-
-}
+.highlightSlider::-webkit-scrollbar{display:none}
 
 .highlightSlider img{
-
 height:420px;
-
-border-radius:18px;
-
+border-radius:16px;
 scroll-snap-align:start;
-
-object-fit:cover;
-
 transition:.4s;
-
+cursor:pointer;
 }
 
 .highlightSlider img:hover{
-
 transform:scale(1.05);
-
 }
 
-/* GALLERY */
+/* ---------- CATEGORY FILTER ---------- */
+
+.filters{
+text-align:center;
+margin-bottom:30px;
+}
+
+.filters button{
+background:transparent;
+border:1px solid var(--gold);
+color:white;
+padding:8px 18px;
+margin:5px;
+cursor:pointer;
+}
+
+/* ---------- GALLERY ---------- */
 
 .gallery{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-
 gap:20px;
-
 }
 
 .gallery div{
-
 aspect-ratio:1/1;
-
 overflow:hidden;
-
 border-radius:16px;
-
 }
 
 .gallery img{
-
 width:100%;
 height:100%;
 object-fit:cover;
-
 transition:.5s;
-
 }
 
 .gallery img:hover{
-
 transform:scale(1.1);
-
 filter:brightness(.8);
-
 }
 
-/* COMMENTS */
+/* ---------- LIGHTBOX ---------- */
+
+#lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
+/* ---------- COMMENTS ---------- */
 
 .commentBox{
-
 max-width:850px;
 margin:auto;
-
 background:var(--card);
-
-padding:40px;
-
+padding:35px;
 border-radius:25px;
-
 }
 
 .input input,
 .input textarea{
-
 width:100%;
-
-background:#0d0d0d;
-
-border:1px solid #222;
-
+background:#111;
+border:1px solid #333;
 color:white;
-
 padding:14px;
-
 margin-bottom:12px;
-
 border-radius:10px;
-
 }
 
 .btn{
-
 background:var(--gold);
-
 border:none;
-
 padding:12px 30px;
-
 border-radius:25px;
-
 cursor:pointer;
-
-font-weight:600;
-
 }
 
 .comment{
-
-background:#0b0b0b;
-
+background:#0c0c0c;
 padding:18px;
-
 border-left:4px solid var(--gold);
-
 border-radius:12px;
-
 margin-top:14px;
-
 }
 
 .reply{
-
 margin-left:25px;
-
 background:#111;
-
 padding:10px;
-
 border-radius:10px;
-
 margin-top:8px;
-
 font-size:.85rem;
-
-color:#ddd;
-
 }
 
-/* MUSIC */
+/* ---------- INSTAGRAM ---------- */
 
-#audioToggle{
-
-position:fixed;
-
-bottom:25px;
-right:25px;
-
-width:45px;
-height:45px;
-
-background:var(--gold);
-
-border-radius:50%;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-cursor:pointer;
-
-font-size:18px;
-
+.insta{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:10px;
 }
 
-/* CONTACT */
+.insta img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+/* ---------- CONTACT ---------- */
 
 .contact{
-
 text-align:center;
-
 background:black;
-
 }
 
-footer{
-
-padding:40px;
-text-align:center;
-font-size:.8rem;
-color:#777;
-
-}
-
-/* MOBILE */
+/* ---------- MOBILE ---------- */
 
 @media(max-width:768px){
 
 .about{
-
 grid-template-columns:1fr;
-
 }
 
 .highlightSlider img{
-
 height:260px;
 max-width:80vw;
-
 }
 
 section{
-
 padding:70px 20px;
-
 }
 
 }
@@ -448,11 +357,15 @@ padding:70px 20px;
 
 <body>
 
-<div id="audioToggle" onclick="toggleMusic()">🎵</div>
+<div class="cursor" id="cursor"></div>
 
-<audio id="bgMusic" loop>
-<source src="song.mp3" type="audio/mp3">
-</audio>
+<div id="loader">
+<div class="loaderLogo">ANKAN CLICKS</div>
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+<img id="lightImg">
+</div>
 
 <header class="hero">
 
@@ -473,6 +386,7 @@ padding:70px 20px;
 <a href="#about">About</a>
 <a href="#new">Discoveries</a>
 <a href="#gallery">Gallery</a>
+<a href="#instagram">Instagram</a>
 <a href="#comments">Guestbook</a>
 
 </nav>
@@ -486,24 +400,15 @@ padding:70px 20px;
 <h2>About My Vision</h2>
 
 <p>
-
-আমি অঙ্কন, একজন শখের ফটোগ্রাফার।  
-আমার কাছে ফটোগ্রাফি শুধু ছবি তোলা নয় — এটি অনুভূতি, আলো আর মুহূর্তকে ধরে রাখার একটি শিল্প।  
-প্রতিটি ফ্রেমের ভেতরে আমি চেষ্টা করি সেই গল্পটা বন্দী করতে যা চোখের সামনে মুহূর্তের মধ্যেই হারিয়ে যায়।
-
+আমি অঙ্কন, একজন শখের ফটোগ্রাফার। আমার কাছে ফটোগ্রাফি শুধু একটি ছবি তোলার কাজ নয়, বরং আলো, অনুভূতি আর মুহূর্তকে ধরে রাখার একটি শিল্প। প্রতিটি ফ্রেমের ভেতরে আমি সেই গল্পটা খুঁজে পাই যা এক সেকেন্ড পরে আর দেখা যাবে না।
 </p>
 
 <p>
-
-Through my lens, I try to capture not only what the eyes can see but also what the heart can feel.  
-Photography for me is a way of freezing emotions, light, and fleeting moments so they can live forever.
-
+Through my lens, I capture not only what the eyes see but also what the heart feels. Photography for me is about freezing emotions, light, and fleeting moments so they can live forever in a single frame.
 </p>
 
-<p style="color:var(--gold);font-style:italic;text-align:center">
-
+<p style="color:#f5b041;text-align:center;font-style:italic">
 "Through my lens, moments become memories."
-
 </p>
 
 </div>
@@ -518,23 +423,19 @@ Photography for me is a way of freezing emotions, light, and fleeting moments so
 
 <h2>New Discoveries</h2>
 
-<div class="highlightWrap">
-
 <div class="highlightSlider">
 
-<img src="photo37.jpeg">
-<img src="photo38.jpeg">
-<img src="photo39.jpeg">
-<img src="photo40.jpg">
-<img src="photo41.jpg">
-<img src="photo42.jpeg">
-<img src="photo43.jpg">
-<img src="photo44.jpg">
-<img src="photo45.jpg">
-<img src="photo46.jpg">
-<img src="photo47.jpg">
-
-</div>
+<img src="photo37.jpeg" onclick="openLightbox(this.src)">
+<img src="photo38.jpeg" onclick="openLightbox(this.src)">
+<img src="photo39.jpeg" onclick="openLightbox(this.src)">
+<img src="photo40.jpg" onclick="openLightbox(this.src)">
+<img src="photo41.jpg" onclick="openLightbox(this.src)">
+<img src="photo42.jpeg" onclick="openLightbox(this.src)">
+<img src="photo43.jpg" onclick="openLightbox(this.src)">
+<img src="photo44.jpg" onclick="openLightbox(this.src)">
+<img src="photo45.jpg" onclick="openLightbox(this.src)">
+<img src="photo46.jpg" onclick="openLightbox(this.src)">
+<img src="photo47.jpg" onclick="openLightbox(this.src)">
 
 </div>
 
@@ -546,62 +447,40 @@ Photography for me is a way of freezing emotions, light, and fleeting moments so
 
 <div class="gallery">
 
-<a href="photo1.jpeg" target="_blank"><div><img src="photo1.jpeg"></div></a>
-<a href="photo2.jpeg" target="_blank"><div><img src="photo2.jpeg"></div></a>
-<a href="photo3.jpeg" target="_blank"><div><img src="photo3.jpeg"></div></a>
-<a href="photo4.jpeg" target="_blank"><div><img src="photo4.jpeg"></div></a>
-<a href="photo5.jpeg" target="_blank"><div><img src="photo5.jpeg"></div></a>
-<a href="photo6.jpeg" target="_blank"><div><img src="photo6.jpeg"></div></a>
-<a href="photo7.jpeg" target="_blank"><div><img src="photo7.jpeg"></div></a>
-<a href="photo8.jpeg" target="_blank"><div><img src="photo8.jpeg"></div></a>
-<a href="photo9.jpeg" target="_blank"><div><img src="photo9.jpeg"></div></a>
-<a href="photo10.jpeg" target="_blank"><div><img src="photo10.jpeg"></div></a>
-<a href="photo11.jpeg" target="_blank"><div><img src="photo11.jpeg"></div></a>
-<a href="photo12.jpeg" target="_blank"><div><img src="photo12.jpeg"></div></a>
-<a href="photo13.jpeg" target="_blank"><div><img src="photo13.jpeg"></div></a>
-<a href="photo14.jpeg" target="_blank"><div><img src="photo14.jpeg"></div></a>
-<a href="photo15.jpeg" target="_blank"><div><img src="photo15.jpeg"></div></a>
-<a href="photo16.jpeg" target="_blank"><div><img src="photo16.jpeg"></div></a>
-
-<a href="photo17.jpg" target="_blank"><div><img src="photo17.jpg"></div></a>
-
-<a href="photo18.jpeg" target="_blank"><div><img src="photo18.jpeg"></div></a>
-<a href="photo19.jpeg" target="_blank"><div><img src="photo19.jpeg"></div></a>
-<a href="photo20.jpeg" target="_blank"><div><img src="photo20.jpeg"></div></a>
-<a href="photo21.jpeg" target="_blank"><div><img src="photo21.jpeg"></div></a>
-<a href="photo22.jpeg" target="_blank"><div><img src="photo22.jpeg"></div></a>
-<a href="photo23.jpeg" target="_blank"><div><img src="photo23.jpeg"></div></a>
-<a href="photo24.jpeg" target="_blank"><div><img src="photo24.jpeg"></div></a>
-<a href="photo25.jpeg" target="_blank"><div><img src="photo25.jpeg"></div></a>
-<a href="photo26.jpeg" target="_blank"><div><img src="photo26.jpeg"></div></a>
-<a href="photo27.jpeg" target="_blank"><div><img src="photo27.jpeg"></div></a>
-<a href="photo28.jpeg" target="_blank"><div><img src="photo28.jpeg"></div></a>
-<a href="photo29.jpeg" target="_blank"><div><img src="photo29.jpeg"></div></a>
-<a href="photo30.jpeg" target="_blank"><div><img src="photo30.jpeg"></div></a>
-
-<a href="photo31.jpeg" target="_blank"><div><img src="photo31.jpeg"></div></a>
-<a href="photo32.jpeg" target="_blank"><div><img src="photo32.jpeg"></div></a>
-<a href="photo33.jpeg" target="_blank"><div><img src="photo33.jpeg"></div></a>
-<a href="photo34.jpeg" target="_blank"><div><img src="photo34.jpeg"></div></a>
-
-<a href="photo35.jpg" target="_blank"><div><img src="photo35.jpg"></div></a>
-
-<a href="photo36.jpeg" target="_blank"><div><img src="photo36.jpeg"></div></a>
-
-<a href="photo37.jpeg" target="_blank"><div><img src="photo37.jpeg"></div></a>
-<a href="photo38.jpeg" target="_blank"><div><img src="photo38.jpeg"></div></a>
-<a href="photo39.jpeg" target="_blank"><div><img src="photo39.jpeg"></div></a>
-<a href="photo40.jpg" target="_blank"><div><img src="photo40.jpg"></div></a>
-<a href="photo41.jpg" target="_blank"><div><img src="photo41.jpg"></div></a>
-<a href="photo42.jpeg" target="_blank"><div><img src="photo42.jpeg"></div></a>
-<a href="photo43.jpg" target="_blank"><div><img src="photo43.jpg"></div></a>
-<a href="photo44.jpg" target="_blank"><div><img src="photo44.jpg"></div></a>
-<a href="photo45.jpg" target="_blank"><div><img src="photo45.jpg"></div></a>
-<a href="photo46.jpg" target="_blank"><div><img src="photo46.jpg"></div></a>
-<a href="photo47.jpg" target="_blank"><div><img src="photo47.jpg"></div></a>
-<a href="photo48.jpg" target="_blank"><div><img src="photo48.jpg"></div></a>
+<a onclick="openLightbox('photo1.jpeg')"><div><img src="photo1.jpeg"></div></a>
+<a onclick="openLightbox('photo2.jpeg')"><div><img src="photo2.jpeg"></div></a>
+<a onclick="openLightbox('photo3.jpeg')"><div><img src="photo3.jpeg"></div></a>
+<a onclick="openLightbox('photo4.jpeg')"><div><img src="photo4.jpeg"></div></a>
+<a onclick="openLightbox('photo5.jpeg')"><div><img src="photo5.jpeg"></div></a>
+<a onclick="openLightbox('photo6.jpeg')"><div><img src="photo6.jpeg"></div></a>
+<a onclick="openLightbox('photo7.jpeg')"><div><img src="photo7.jpeg"></div></a>
+<a onclick="openLightbox('photo8.jpeg')"><div><img src="photo8.jpeg"></div></a>
 
 </div>
+
+</section>
+
+<section id="instagram">
+
+<h2>Instagram Feed</h2>
+
+<div class="insta">
+
+<img src="photo37.jpeg">
+<img src="photo38.jpeg">
+<img src="photo39.jpeg">
+<img src="photo40.jpg">
+<img src="photo41.jpg">
+<img src="photo42.jpeg">
+
+</div>
+
+<p style="text-align:center;margin-top:20px">
+
+Follow on Instagram  
+<b>aperturechronicles085</b>
+
+</p>
 
 </section>
 
@@ -612,12 +491,10 @@ Photography for me is a way of freezing emotions, light, and fleeting moments so
 <h2>Guestbook</h2>
 
 <div>
-
 <input type="password" id="adminPin" placeholder="Admin PIN">
 <button onclick="adminLogin()">Login</button>
 <button onclick="adminLogout()">Logout</button>
 <p id="adminStatus"></p>
-
 </div>
 
 <div class="input">
@@ -640,9 +517,7 @@ Photography for me is a way of freezing emotions, light, and fleeting moments so
 <h2>Get In Touch</h2>
 
 <p>Instagram : aperturechronicles085</p>
-
 <p>Email : ankan2007sikdar21@gmail.com</p>
-
 <p>Contact : +91 9564996325</p>
 
 </section>
@@ -657,6 +532,51 @@ Photography for me is a way of freezing emotions, light, and fleeting moments so
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
 <script>
+
+/* cursor */
+
+const cursor=document.getElementById("cursor");
+
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+/* loader */
+
+window.onload=()=>{
+setTimeout(()=>{
+document.getElementById("loader").style.display="none"
+},2000)
+}
+
+/* typing */
+
+const text="Photography • Stories • Emotions";
+
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("typeText").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,90);
+}
+}
+type();
+
+/* lightbox */
+
+function openLightbox(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightImg").src=src;
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").style.display="none";
+}
+
+/* firebase comment system */
 
 const firebaseConfig={
 apiKey:"AIzaSyDFBtQJXSrupeS0XZx8KINJM1Zpsp8M8xQ",
@@ -687,9 +607,7 @@ if(adminPin.value===ADMIN_PIN){
 
 isAdmin=true;
 localStorage.setItem("admin","true");
-
 adminStatus.innerText="Logged in as Admin";
-
 loadComments();
 
 }else alert("Wrong PIN");
@@ -699,11 +617,8 @@ loadComments();
 function adminLogout(){
 
 isAdmin=false;
-
 localStorage.removeItem("admin");
-
 adminStatus.innerText="Logged out";
-
 loadComments();
 
 }
@@ -711,25 +626,17 @@ loadComments();
 function saveComment(){
 
 if(!nameInput.value.trim()||!messageInput.value.trim()){
-
-alert("Fill all fields");
-return;
-
+alert("Fill all fields"); return;
 }
 
 db.collection("comments").add({
-
 name:nameInput.value.trim(),
 message:messageInput.value.trim(),
 time:firebase.firestore.FieldValue.serverTimestamp()
-
 }).then(()=>{
-
 nameInput.value="";
 messageInput.value="";
-
 loadComments();
-
 });
 
 }
@@ -738,8 +645,7 @@ function deleteComment(id){
 
 if(!isAdmin)return;
 
-if(confirm("Delete this comment?"))
-
+if(confirm("Delete comment?"))
 db.collection("comments").doc(id).delete().then(loadComments);
 
 }
@@ -751,10 +657,8 @@ const text=document.getElementById("r"+id).value.trim();
 if(!text)return;
 
 db.collection("comments").doc(id).collection("replies").add({
-
 text:text,
 time:firebase.firestore.FieldValue.serverTimestamp()
-
 }).then(loadComments);
 
 }
@@ -763,53 +667,40 @@ function loadComments(){
 
 commentList.innerHTML="";
 
-db.collection("comments").orderBy("time","desc").get().then(snapshot=>{
+db.collection("comments").orderBy("time","desc").get().then(s=>{
 
-snapshot.forEach(doc=>{
+s.forEach(d=>{
 
-const data=doc.data();
+const c=d.data();
 
 const div=document.createElement("div");
-
 div.className="comment";
 
 div.innerHTML=`
-
-<strong>${data.name}</strong>
-
-<p>${data.message}</p>
-
-${isAdmin?`<span style="color:red;cursor:pointer;font-size:12px" onclick="deleteComment('${doc.id}')">Delete</span>`:""}
-
+<strong>${c.name}</strong>
+<p>${c.message}</p>
+${isAdmin?`<span style="color:red;cursor:pointer;font-size:12px" onclick="deleteComment('${d.id}')">Delete</span>`:""}
 `;
 
 if(isAdmin){
 
 div.innerHTML+=`
-
 <div style="margin-top:10px">
-
-<input id="r${doc.id}" placeholder="Reply...">
-
-<button onclick="addReply('${doc.id}')">Reply</button>
-
+<input id="r${d.id}" placeholder="Reply...">
+<button onclick="addReply('${d.id}')">Reply</button>
 </div>
-
 `;
 
 }
 
-doc.ref.collection("replies").orderBy("time").get().then(res=>{
+d.ref.collection("replies").orderBy("time").get().then(r=>{
 
-res.forEach(r=>{
+r.forEach(x=>{
 
-const reply=document.createElement("div");
-
-reply.className="reply";
-
-reply.innerHTML=`<b style="color:#f5b041">Admin:</b> ${r.data().text}`;
-
-div.appendChild(reply);
+const rp=document.createElement("div");
+rp.className="reply";
+rp.innerHTML=`<b style="color:#f5b041">Admin:</b> ${x.data().text}`;
+div.appendChild(rp);
 
 });
 
@@ -825,51 +716,8 @@ commentList.appendChild(div);
 
 loadComments();
 
-/* typing */
-
-const text="Photography • Stories • Emotions";
-
-let i=0;
-
-function type(){
-
-if(i<text.length){
-
-document.getElementById("typeText").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(type,90);
-
-}
-
-}
-
-window.onload=type;
-
-/* music */
-
-const bgMusic=document.getElementById("bgMusic");
-
-function toggleMusic(){
-
-if(bgMusic.paused){
-
-bgMusic.play();
-
-audioToggle.innerText="⏸";
-
-}else{
-
-bgMusic.pause();
-
-audioToggle.innerText="🎵";
-
-}
-
-}
-
 </script>
 
 </body>
 </html>
+```
