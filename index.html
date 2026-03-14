@@ -1,7 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+<link rel="preload" as="image" href="cover.jpeg">
+<link rel="preload" as="image" href="cover2.jpeg">
+<link rel="preload" as="image" href="cover3.jpeg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankan Clicks | Photography Portfolio</title>
@@ -76,21 +78,44 @@ animation:pulse 2s infinite;
 /* ===== HERO ===== */
 
 .hero{
+background-attachment:fixed;
 height:100vh;
 background-size:cover;
 background-position:center;
-animation:heroSlide 24s infinite;
+animation:heroSlide 24s infinite, heroZoom 12s ease-in-out infinite;
 display:flex;
 align-items:center;
 justify-content:center;
 position:relative;
+overflow:hidden;
 }
 
+@keyframes heroZoom{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
 @keyframes heroSlide{
 0%{background-image:url('cover.jpeg')}
 33%{background-image:url('cover2.jpeg')}
 66%{background-image:url('cover3.jpeg')}
 100%{background-image:url('cover.jpeg')}
+}
+
+@media(max-width:768px){
+.hero{
+background-attachment:scroll;
+}
 }
 
 .overlay{
@@ -600,6 +625,20 @@ Follow on Instagram <b>aperturechronicles085</b>
 
 </section>
 
+<div style="max-width:500px;margin:auto;margin-top:30px;">
+
+<input placeholder="Your Name" style="width:100%;padding:12px;margin-bottom:10px;border-radius:8px;border:none;">
+
+<input placeholder="Email" style="width:100%;padding:12px;margin-bottom:10px;border-radius:8px;border:none;">
+
+<textarea placeholder="Message" rows="4" style="width:100%;padding:12px;border-radius:8px;border:none;"></textarea>
+
+<button style="margin-top:10px;padding:10px 20px;border:none;background:#f5b041;border-radius:20px;">
+Send
+</button>
+
+</div>
+
 <footer>
 © 2026 Ankan Clicks | Photography Portfolio
 </footer>
@@ -809,9 +848,32 @@ commentList.appendChild(div);
 }
 
 loadComments();
+document.addEventListener("contextmenu",function(e){
+
+if(e.target.tagName==="IMG"){
+e.preventDefault();
+}
+
+});
+
+function toggleMusic(){
+
+const m = document.getElementById("music");
+
+if(m.paused){
+m.play();
+}else{
+m.pause();
+}
+
+}
 
 </script>
+<button id="musicBtn" onclick="toggleMusic()"
+style="position:fixed;bottom:20px;right:20px;padding:10px 16px;border:none;border-radius:20px;background:#f5b041;color:black;font-weight:bold;z-index:999;">
+🎵 Music
+</button>
 
+<audio id="music" src="song.mp3" loop></audio>
 </body>
 </html>
-```
