@@ -259,18 +259,49 @@ filter:brightness(.8);
 /* ===== LIGHTBOX ===== */
 
 #lightbox{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.95);
 display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
 align-items:center;
 justify-content:center;
-z-index:999;
+z-index:9999;
+flex-direction:column;
 }
 
 #lightbox img{
 max-width:90%;
-max-height:90%;
+max-height:85%;
+border-radius:10px;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:35px;
+color:white;
+cursor:pointer;
+}
+
+.nav{
+position:absolute;
+top:50%;
+font-size:40px;
+color:white;
+cursor:pointer;
+user-select:none;
+}
+
+.prev{
+left:20px;
+}
+
+.next{
+right:20px;
 }
 
 .lbArrow{
@@ -642,6 +673,17 @@ Send
 <footer>
 © 2026 Ankan Clicks | Photography Portfolio
 </footer>
+
+<div id="lightbox">
+
+<span class="close" onclick="closeLightbox()">✕</span>
+
+<img id="lightImg">
+
+<div class="nav prev" onclick="prevImg()">❮</div>
+<div class="nav next" onclick="nextImg()">❯</div>
+
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
