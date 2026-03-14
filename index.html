@@ -195,6 +195,12 @@ transition:.4s;
 cursor:pointer;
 }
 
+.highlightSlider img{
+width:auto;
+max-width:85vw;
+object-fit:cover;
+}
+
 .highlightSlider img:hover{
 transform:scale(1.05);
 }
@@ -203,8 +209,8 @@ transform:scale(1.05);
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:15px;
 }
 
 .gallery div{
@@ -343,6 +349,46 @@ section{padding:70px 20px}
 
 }
 
+@media(max-width:768px){
+
+.hero{
+height:70vh;
+}
+
+.logo{
+width:260px;
+}
+
+.highlightSlider img{
+height:240px;
+}
+
+.gallery{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.gallery div{
+aspect-ratio:1/1;
+}
+
+.insta{
+grid-template-columns:repeat(2,1fr);
+}
+
+.insta img{
+height:140px;
+}
+
+section{
+padding:60px 18px;
+}
+
+.about img{
+width:100%;
+}
+
+}
 </style>
 </head>
 
@@ -355,9 +401,18 @@ section{padding:70px 20px}
 </div>
 
 <div id="lightbox">
+
+<span onclick="closeLightbox()" 
+style="position:absolute;top:30px;right:40px;font-size:32px;cursor:pointer;color:white;">
+✕
+</span>
+
 <span class="lbArrow lbPrev" onclick="prevImg()">❮</span>
+
 <img id="lightImg">
+
 <span class="lbArrow lbNext" onclick="nextImg()">❯</span>
+
 </div>
 
 <header class="hero">
@@ -563,7 +618,7 @@ cursor.style.top=e.clientY+"px";
 });
 
 /* ===== LOADER ===== */
-
+const loader=document.getElementById("loader");
 window.onload=()=>{
 setTimeout(()=>{loader.style.display="none"},2000)
 }
@@ -603,6 +658,10 @@ lightImg.src=images[current];
 function nextImg(){
 current=(current+1)%images.length;
 lightImg.src=images[current];
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").style.display="none";
 }
 
 /* ===== FIREBASE COMMENT ===== */
@@ -685,11 +744,15 @@ time:firebase.firestore.FieldValue.serverTimestamp()
 
 function formatTime(t){
 
-if(!t)return "";
+if(!t) return "";
 
-const d=t.toDate();
+const d = t.toDate();
 
-return d.toLocaleString();
+let day = String(d.getDate()).padStart(2,'0');
+let month = String(d.getMonth()+1).padStart(2,'0');
+let year = d.getFullYear();
+
+return day + "/" + month + "/" + year + "  " + d.toLocaleTimeString();
 
 }
 
